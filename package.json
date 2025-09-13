@@ -7,10 +7,18 @@
     "android": "expo start -c --android",
     "ios": "expo start -c --ios",
     "web": "expo start -c --web",
+    "@Descr db:sync": "Migrate both Production & Local DB. Alias.",
+    "db:sync": "(npm run db:push) && (npm run db:push:prod)",
+    "@Descr db:push": "Push changes to Local DB. Generates migrations and applies them.",
+    "db:push": "cross-env NODE_ENV=development drizzle-kit push --verbose",
+    "@Descr db:push:prod": "Push changes to Production DB",
+    "db:push:prod": "cross-env NODE_ENV=production drizzle-kit push --verbose",
+    "db:studio": "cross-env NODE_ENV=development drizzle-kit studio --verbose",
+    "db:studio:prod": "cross-env NODE_ENV=production drizzle-kit studio --verbose --port 8084",
     "clean": "rm -rf .expo node_modules",
     "format": "pnpm dlx prettier app/ components/ lib/ models/ --write",
-    "prepare": "husky",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "@better-auth/expo": "^1.3.9",
@@ -20,6 +28,7 @@
     "better-auth": "^1.3.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cross-env": "^10.0.0",
     "dotenv": "^17.2.2",
     "drizzle-orm": "^0.44.5",
     "expo": "^53.0.19",
