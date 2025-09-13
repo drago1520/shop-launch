@@ -47,9 +47,7 @@ export default function Screen() {
           <Text className="ios:text-foreground font-mono text-sm text-muted-foreground">
             1. Edit <Text variant="code">app/index.tsx</Text> to get started.
           </Text>
-          <Text className="ios:text-foreground font-mono text-sm text-muted-foreground">
-            2. Save to see your changes instantly.
-          </Text>
+          <Text className="ios:text-foreground font-mono text-sm text-muted-foreground">2. Save to see your changes instantly.</Text>
         </View>
         <View className="flex-row gap-2">
           <Link href="https://reactnativereusables.com" asChild>
@@ -78,11 +76,7 @@ function ThemeToggle() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
 
   return (
-    <Button
-      onPressIn={toggleColorScheme}
-      size="icon"
-      variant="ghost"
-      className="rounded-full web:mx-4">
+    <Button onPressIn={toggleColorScheme} size="icon" variant="ghost" className="rounded-full web:mx-4">
       <Icon as={THEME_ICONS[colorScheme ?? 'light']} className="size-5" />
     </Button>
   );

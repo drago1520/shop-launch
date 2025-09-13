@@ -1,9 +1,9 @@
 {
-  "printWidth": 100,
-  "tabWidth": 2,
-  "singleQuote": true,
-  "bracketSameLine": true,
-  "trailingComma": "es5",
+  "printWidth": 9999,
+  "arrowParens": "avoid",
   "plugins": ["prettier-plugin-tailwindcss"],
+  "singleQuote": true,
+  "bracketSameLine": false,
+  "jsxSingleQuote": false,
   "tailwindFunctions": ["cva"]
 }
