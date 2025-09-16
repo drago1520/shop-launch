@@ -13,13 +13,6 @@ export { ErrorBoundary } from 'expo-router';
 
 export default function RootLayout() {
   const { colorScheme } = useColorScheme();
-  const pathname = usePathname();
-  const params = useGlobalSearchParams();
-  const posthog = usePostHog(); // use the usePostHog hook if using the PostHogProvider or your own custom posthog instance
-  // Track the location in your analytics provider here.
-  useEffect(() => {
-    posthog.screen(pathname, params);
-  }, [pathname, params, posthog]);
 
   return (
     <PostHogProvider
@@ -35,7 +28,20 @@ export default function RootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack />
         <PortalHost />
+        <TrackPosthogPageView />
       </ThemeProvider>
     </PostHogProvider>
   );
+}
+
+
+function TrackPosthogPageView() {
+  const pathname = usePathname();
+  const params = useGlobalSearchParams();
+   const posthog = usePostHog(); // use the usePostHog hook if using the PostHogProvider or your own custom posthog instance
+  // Track the location in your analytics provider here.
+  useEffect(() => {
+    posthog.screen(pathname, params);
+  }, [pathname, params, posthog]);
+  return <></>
 }
