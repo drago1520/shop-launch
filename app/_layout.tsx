@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export { ErrorBoundary } from 'expo-router';
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const { colorScheme } = useColorScheme();
@@ -38,14 +38,13 @@ export default function RootLayout() {
   );
 }
 
-
 function TrackPosthogPageView() {
   const pathname = usePathname();
   const params = useGlobalSearchParams();
-   const posthog = usePostHog(); // use the usePostHog hook if using the PostHogProvider or your own custom posthog instance
+  const posthog = usePostHog(); // use the usePostHog hook if using the PostHogProvider or your own custom posthog instance
   // Track the location in your analytics provider here.
   useEffect(() => {
     posthog.screen(pathname, params);
   }, [pathname, params, posthog]);
-  return <></>
+  return <></>;
 }
