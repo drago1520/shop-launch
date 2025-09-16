@@ -8,29 +8,33 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { PostHogProvider, usePostHog } from 'posthog-react-native';
 import { useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export { ErrorBoundary } from 'expo-router';
+const queryClient = new QueryClient()
 
 export default function RootLayout() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <PostHogProvider
-      apiKey="phc_rtWVkurqJiBqLjZxalfmh2oppe3kwtShfrC9BNqEmhP"
-      options={{
-        host: 'https://eu.i.posthog.com',
-        enableSessionReplay: true,
-        captureAppLifecycleEvents: true,
-      }}
-      autocapture={true}
-    >
-      <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
-        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-        <Stack />
-        <PortalHost />
-        <TrackPosthogPageView />
-      </ThemeProvider>
-    </PostHogProvider>
+    <QueryClientProvider client={queryClient}>
+      <PostHogProvider
+        apiKey="phc_rtWVkurqJiBqLjZxalfmh2oppe3kwtShfrC9BNqEmhP"
+        options={{
+          host: 'https://eu.i.posthog.com',
+          enableSessionReplay: true,
+          captureAppLifecycleEvents: true,
+        }}
+        autocapture={true}
+      >
+        <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
+          <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+          <Stack />
+          <PortalHost />
+          <TrackPosthogPageView />
+        </ThemeProvider>
+      </PostHogProvider>
+    </QueryClientProvider>
   );
 }
 
