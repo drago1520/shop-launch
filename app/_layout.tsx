@@ -9,7 +9,7 @@ import { useColorScheme } from 'nativewind';
 import { PostHogProvider, usePostHog } from 'posthog-react-native';
 import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export { ErrorBoundary } from 'expo-router';
 const queryClient = new QueryClient();
@@ -31,7 +31,9 @@ export default function RootLayout() {
         <SafeAreaProvider>
           <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
             <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-            <Stack />
+            {/* <SafeAreaView className='flex flex-1'> */}
+              <Stack screenOptions={{ headerShown: false }} />
+            {/* </SafeAreaView> */}
             <PortalHost />
             <TrackPosthogPageView />
           </ThemeProvider>

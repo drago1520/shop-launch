@@ -40,7 +40,7 @@ export default function Screen() {
 
   return (
     <>
-      <Stack.Screen options={SCREEN_OPTIONS[colorScheme ?? 'light']} />
+      {/* <Stack.Screen options={SCREEN_OPTIONS[colorScheme ?? 'light']} /> */}
       <View className="flex-1 items-center justify-center gap-8 p-4">
         <Image source={LOGO[colorScheme ?? 'light']} style={IMAGE_STYLE} resizeMode="contain" />
         <View className="gap-2 p-4">
@@ -62,6 +62,16 @@ export default function Screen() {
             </Button>
           </Link>
         </View>
+        <Link href={'/onboarding'} asChild>
+          <Button variant={'link'}>
+            <Text>Onboarding</Text>
+          </Button>
+        </Link>
+        <Link href={'/p/jfjfjf'} asChild>
+          <Button variant={'link'}>
+            <Text>Dynamic route</Text>
+          </Button>
+        </Link>
       </View>
     </>
   );
