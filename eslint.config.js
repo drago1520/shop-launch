@@ -2,6 +2,7 @@
 const { defineConfig } = require('eslint/config');
 const expoConfig = require("eslint-config-expo/flat");
 const pluginQuery = require("@tanstack/eslint-plugin-query");
+const reactCompiler = require('eslint-plugin-react-compiler');
 
 module.exports = defineConfig([
   expoConfig,
