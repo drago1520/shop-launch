@@ -6,6 +6,7 @@ const pluginQuery = require("@tanstack/eslint-plugin-query");
 module.exports = defineConfig([
   expoConfig,
   ...pluginQuery.configs['flat/recommended'],
+  reactCompiler.configs.recommended,
   {
     ignores: ["dist/*"],
     rules: {

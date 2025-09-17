@@ -7,7 +7,7 @@ import { Stack, useGlobalSearchParams, usePathname } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { PostHogProvider, usePostHog } from 'posthog-react-native';
-import { useEffect } from 'react';
+import { useEffect, StrictMode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
@@ -18,28 +18,30 @@ export default function RootLayout() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <PostHogProvider
-        apiKey="phc_rtWVkurqJiBqLjZxalfmh2oppe3kwtShfrC9BNqEmhP"
-        options={{
-          host: 'https://eu.i.posthog.com',
-          enableSessionReplay: true,
-          captureAppLifecycleEvents: true,
-        }}
-        autocapture={true}
-      >
-        <SafeAreaProvider>
-          <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
-            <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-            {/* <SafeAreaView className='flex flex-1'> */}
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <PostHogProvider
+          apiKey="phc_rtWVkurqJiBqLjZxalfmh2oppe3kwtShfrC9BNqEmhP"
+          options={{
+            host: 'https://eu.i.posthog.com',
+            enableSessionReplay: true,
+            captureAppLifecycleEvents: true,
+          }}
+          autocapture={true}
+        >
+          <SafeAreaProvider>
+            <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
+              <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+              {/* <SafeAreaView className='flex flex-1'> */}
               <Stack screenOptions={{ headerShown: false }} />
-            {/* </SafeAreaView> */}
-            <PortalHost />
-            <TrackPosthogPageView />
-          </ThemeProvider>
-        </SafeAreaProvider>
-      </PostHogProvider>
-    </QueryClientProvider>
+              {/* </SafeAreaView> */}
+              <PortalHost />
+              <TrackPosthogPageView />
+            </ThemeProvider>
+          </SafeAreaProvider>
+        </PostHogProvider>
+      </QueryClientProvider>
+    </StrictMode>
   );
 }
 
