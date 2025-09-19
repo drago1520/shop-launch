@@ -16,7 +16,7 @@
     "db:studio": "cross-env NODE_ENV=development drizzle-kit studio --verbose",
     "db:studio:prod": "cross-env NODE_ENV=production drizzle-kit studio --verbose --port 8084",
     "clean": "rm -rf .expo node_modules",
-    "format": "pnpm dlx prettier app/ components/ lib/ models/ --write",
+    "format": "prettier app/ components/ lib/ models/ --write --ignore-unknown",
     "lint": "expo lint",
     "prepare": "husky"
   },
