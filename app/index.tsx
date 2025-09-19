@@ -1,93 +1,39 @@
-import { Button } from '@/components/ui/button';
-import { Icon } from '@/components/ui/icon';
-import { Text } from '@/components/ui/text';
-import { THEME } from '@/lib/theme';
-import { Link, Stack } from 'expo-router';
-import { MoonStarIcon, StarIcon, SunIcon } from 'lucide-react-native';
-import { useColorScheme } from 'nativewind';
-import * as React from 'react';
-import { Image, type ImageStyle, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context"
+import { Text } from "@/components/ui/text"
+import { ScrollView, View } from "react-native";
+import { Link } from "expo-router";
+import { Button } from "@/components/ui/button";
 
-const LOGO = {
-  light: require('@/assets/images/react-native-reusables-light.png'),
-  dark: require('@/assets/images/react-native-reusables-dark.png'),
-};
-
-const SCREEN_OPTIONS = {
-  light: {
-    title: 'React Native Reusables',
-    headerTransparent: true,
-    headerShadowVisible: true,
-    headerStyle: { backgroundColor: THEME.light.background },
-    headerRight: () => <ThemeToggle />,
-  },
-  dark: {
-    title: 'React Native Reusables',
-    headerTransparent: true,
-    headerShadowVisible: true,
-    headerStyle: { backgroundColor: THEME.dark.background },
-    headerRight: () => <ThemeToggle />,
-  },
-};
-
-const IMAGE_STYLE: ImageStyle = {
-  height: 76,
-  width: 76,
-};
-
-export default function Screen() {
-  const { colorScheme } = useColorScheme();
-
+export default function Page() {
+  
   return (
-    <>
-      {/* <Stack.Screen options={SCREEN_OPTIONS[colorScheme ?? 'light']} /> */}
-      <View className="flex-1 items-center justify-center gap-8 p-4">
-        <Image source={LOGO[colorScheme ?? 'light']} style={IMAGE_STYLE} resizeMode="contain" />
-        <View className="gap-2 p-4">
-          <Text className="ios:text-foreground font-mono text-sm text-muted-foreground">
-            1. Edit <Text variant="code">app/index.tsx</Text> to get started.
-          </Text>
-          <Text className="ios:text-foreground font-mono text-sm text-muted-foreground">2. Save to see your changes instantly.</Text>
+    <SafeAreaView>
+      <Link href={'/full-index'}><Text>Theme</Text></Link>
+      <View className="flex flex-row justify-between">
+        <Text>Доставка до адрес</Text>
+        <View className="flex flex-row">
+          <Text>Profile</Text>
+          <Text>Orders</Text>
         </View>
-        <View className="flex-row gap-2">
-          <Link href="https://reactnativereusables.com" asChild>
-            <Button>
-              <Text>Browse the Docs</Text>
-            </Button>
-          </Link>
-          <Link href="https://github.com/founded-labs/react-native-reusables" asChild>
-            <Button variant="ghost">
-              <Text>Star the Repo</Text>
-              <Icon as={StarIcon} />
-            </Button>
-          </Link>
-        </View>
-        <Link href={'/onboarding'} asChild>
-          <Button variant={'link'}>
-            <Text>Onboarding</Text>
-          </Button>
-        </Link>
-        <Link href={'/p/jfjfjf'} asChild>
-          <Button variant={'link'}>
-            <Text>Dynamic route</Text>
-          </Button>
-        </Link>
       </View>
-    </>
-  );
-}
-
-const THEME_ICONS = {
-  light: SunIcon,
-  dark: MoonStarIcon,
-};
-
-function ThemeToggle() {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
-
-  return (
-    <Button onPressIn={toggleColorScheme} size="icon" variant="ghost" className="rounded-full web:mx-4">
-      <Icon as={THEME_ICONS[colorScheme ?? 'light']} className="size-5" />
-    </Button>
+      <View className="w-full h-20 bg-muted"></View>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} className="py-8">
+        <View className="size-24 bg-muted rounded-full mr-4"></View>
+        <View className="size-24 bg-muted rounded-full mr-4"></View>
+        <View className="size-24 bg-muted rounded-full mr-4"></View>
+        <View className="size-24 bg-muted rounded-full mr-4"></View>
+        <View className="size-24 bg-muted rounded-full"></View>
+      </ScrollView>
+      <View>
+        <Text>Carousel with CRO elements - free shipping, support time, 30 day return, на изплащане, експресна доставка</Text>
+      </View>
+        <Link href={'/carousel-test'} asChild>
+        <Button variant={'ghost'}>
+          <Text>carousel</Text>
+        </Button>
+        </Link>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

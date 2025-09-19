@@ -1,4 +1,4 @@
-import { DarkTheme, DefaultTheme, type Theme } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, type Theme, useTheme as useNavTheme } from '@react-navigation/native';
 
 export const THEME = {
   light: {
@@ -79,3 +79,19 @@ export const NAV_THEME: Record<'light' | 'dark', Theme> = {
     },
   },
 };
+
+// Runtime accessors for color tokens
+export type ColorMode = 'light' | 'dark';
+export type ColorTokens = typeof THEME.light;
+
+// Returns the color tokens for an explicit mode (useful in non-React contexts)
+export function getThemeColors(mode: ColorMode): ColorTokens {
+  return THEME[mode];
+}
+
+// Hook to get the active color tokens based on the current React Navigation theme
+export function useThemeColors(): ColorTokens {
+  const navTheme = useNavTheme();
+  const mode: ColorMode = navTheme.dark ? 'dark' : 'light';
+  return THEME[mode];
+}

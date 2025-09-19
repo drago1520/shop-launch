@@ -9,7 +9,8 @@ import { useColorScheme } from 'nativewind';
 import { PostHogProvider, usePostHog } from 'posthog-react-native';
 import { useEffect, StrictMode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export { ErrorBoundary } from 'expo-router';
 const queryClient = new QueryClient();
@@ -18,7 +19,6 @@ export default function RootLayout() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <StrictMode>
       <QueryClientProvider client={queryClient}>
         <PostHogProvider
           apiKey="phc_rtWVkurqJiBqLjZxalfmh2oppe3kwtShfrC9BNqEmhP"
@@ -29,19 +29,20 @@ export default function RootLayout() {
           }}
           autocapture={true}
         >
-          <SafeAreaProvider>
-            <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
-              <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-              {/* <SafeAreaView className='flex flex-1'> */}
-              <Stack screenOptions={{ headerShown: false }} />
-              {/* </SafeAreaView> */}
-              <PortalHost />
-              <TrackPosthogPageView />
-            </ThemeProvider>
-          </SafeAreaProvider>
+          <GestureHandlerRootView>
+            <SafeAreaProvider>
+              <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
+                <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+                {/* <SafeAreaView className='flex flex-1'> */}
+                <Stack screenOptions={{ headerShown: true }} />
+                {/* </SafeAreaView> */}
+                <PortalHost />
+                <TrackPosthogPageView />
+              </ThemeProvider>
+            </SafeAreaProvider>
+          </GestureHandlerRootView>
         </PostHogProvider>
       </QueryClientProvider>
-    </StrictMode>
   );
 }
 
