@@ -30,16 +30,11 @@ export const QuantityPicker = () => {
       <BottomSheetModal 
         ref={sheetRef} 
         backdropComponent={props =>
-          <BottomSheetBackdrop appearsOnIndex={0} disappearsOnIndex={-1} {...props} />} 
+        <BottomSheetBackdrop appearsOnIndex={0} disappearsOnIndex={-1} {...props} />} 
         snapPoints={snapPoints} 
         enableDynamicSizing={false} 
-        onChange={(index) => {
-          if (index !== undefined && index >= 0) {
-            // Focus after sheet opens to ensure keyboard shows reliably
-            setTimeout(() => inputRef.current?.focus(), 60);
-          }
-        }}
-        backgroundStyle={{ backgroundColor: background }} handleIndicatorStyle={{ backgroundColor: muted }}>
+        backgroundStyle={{ backgroundColor: background }}   handleIndicatorStyle={{ backgroundColor: muted }}
+      >
         <BottomSheetFlatList<number>
           data={filteredData}
           keyExtractor={(n: number) => String(n)}
@@ -47,12 +42,11 @@ export const QuantityPicker = () => {
             <View className="px-4 pb-4 pt-2" style={{ backgroundColor: background }}>
               <View className="mb-3 items-center">
                 <View className="flex-row w-full items-center">
-                  {/* left spacer to balance the right close button width */}
                   <View className="w-10" />
                   <Text variant="h3" className="flex-1 text-center">Изберете количество</Text>
-                  <Pressable onPress={() => sheetRef.current?.dismiss()} className="w-10 items-end p-2" hitSlop={8}>
+                  <Button variant={'ghost'} onPress={() => sheetRef.current?.dismiss()} hitSlop={8}>
                     <Text className="text-2xl">✕</Text>
-                  </Pressable>
+                  </Button>
                 </View>
               </View>
               <Input
