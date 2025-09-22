@@ -68,7 +68,7 @@ function Text({
   }) {
   const textClass = React.useContext(TextClassContext);
   const Component = asChild ? Slot.Text : RNText;
-  return <Component className={cn(textVariants({ variant }), textClass, className)} role={variant ? ROLE[variant] : undefined} aria-level={variant ? ARIA_LEVEL[variant] : undefined} {...props} />;
+  return <Component className={cn(textVariants({ variant }), textClass, className)} role={variant ? ROLE[variant] : undefined} aria-level={variant ? ARIA_LEVEL[variant] : undefined} allowFontScaling={false} {...props} />;
 }
 
 export { Text, TextClassContext };

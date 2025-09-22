@@ -13,6 +13,7 @@ function Input({ className, placeholderClassName, ...props }: TextInputProps & R
         }),
         className,
       )}
+      allowFontScaling={false}
       {...props}
     />
   );
