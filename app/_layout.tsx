@@ -36,7 +36,7 @@ export default function RootLayout() {
               <BottomSheetModalProvider>
                 <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
                 {/* <SafeAreaView className='flex flex-1'> */}
-                <Stack screenOptions={{ headerShown: true }} />
+                <Stack screenOptions={{ headerShown: false }} />
                 {/* </SafeAreaView> */}
                 <PortalHost />
                 <TrackPosthogPageView />

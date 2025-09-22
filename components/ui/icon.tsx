@@ -37,10 +37,10 @@ cssInterop(IconImpl, {
  *
  * @param {LucideIcon} as - The Lucide icon component to render.
  * @param {string} className - Utility classes to style the icon using Nativewind.
- * @param {number} size - Icon size (defaults to 14).
+ * @param {number} size - Icon size (defaults to 28).
  * @param {...LucideProps} ...props - Additional Lucide icon props passed to the "as" icon.
  */
-function Icon({ as: IconComponent, className, size = 14, ...props }: IconProps) {
+function Icon({ as: IconComponent, className, size = 28, ...props }: IconProps) {
   return <IconImpl as={IconComponent} className={cn('text-foreground', className)} size={size} {...props} />;
 }
 
