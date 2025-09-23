@@ -10,31 +10,31 @@ import { LightRedRibbon } from '@/components/ui/ribbon';
 import { QuantityPicker } from '@/components/ui/quantity';
 import { TestsBottomSheet } from '@/components/tests-bottom-sheet';
 import { Icon } from '@/components/ui/icon';
-import { ChevronDown } from 'lucide-react-native';
+import { ChevronDown, MapPin, Pin, Truck } from 'lucide-react-native';
+import { Input } from '@/components/ui/input';
 
 export default function Page() {
   return (
     <ScrollView className="mt-4">
-      <View className="mx-2 flex flex-row justify-between">
-        <View className="flex shrink flex-row items-end">
-          <Text className="max-w-[60%]" numberOfLines={2}>
-            Студентски Град блок 14 етаж 7 ап 29
+      <View className="mx-2 flex flex-row items-center justify-between">
+        <View className="flex shrink flex-row items-center gap-0.5">
+          <Text className="max-w-[60%] shrink" numberOfLines={2}>
+            <Icon as={MapPin} className="size-4" /> Студентски Град блок 14 етаж 7 ап 53
           </Text>
-          <Icon as={ChevronDown} />
+          <Icon as={ChevronDown} className="size-5" />
         </View>
-        <View className="flex flex-row gap-4">
-          <Text>Хей, Драго</Text>
-          <Text>Orders</Text>
+        <View className="flex flex-row items-start gap-4">
+          {/* <Text>Хей, Драго!</Text> */}
+          <View className="items-center">
+            <Icon as={Truck} />
+            <Text>Поръчки</Text>
+          </View>
         </View>
       </View>
-      <View className="h-20 w-full bg-muted"></View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} className="py-8">
-        <View className="mr-4 size-24 rounded-full bg-muted"></View>
-        <View className="mr-4 size-24 rounded-full bg-muted"></View>
-        <View className="mr-4 size-24 rounded-full bg-muted"></View>
-        <View className="mr-4 size-24 rounded-full bg-muted"></View>
-        <View className="size-24 rounded-full bg-muted"></View>
-      </ScrollView>
+      <View className="mx-2 mt-4 h-16">
+        <Input className="h-full" />
+      </View>
+      <FlashList horizontal data={Array.from({ length: 10 }, (_, i) => ({ id: `item-${i + 1}` }))} renderItem={({ item }) => <View className="size-24 rounded-full bg-muted"></View>} keyExtractor={item => item.id} showsHorizontalScrollIndicator={false} ItemSeparatorComponent={() => <View className="size-4" />} decelerationRate={'normal'} />
       <View>
         <Text>Carousel with CRO elements - free shipping, support time, 30 day return, на изплащане, експресна доставка</Text>
       </View>
@@ -49,11 +49,11 @@ export default function Page() {
               <Text>{item.id}</Text>
             </View>
           )}
+          snapToInterval={Math.round(width * 0.8) + 12} //Card width + separator width
           keyExtractor={item => item.id}
           ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
-          contentContainerStyle={{ paddingHorizontal: 0 }}
           showsHorizontalScrollIndicator={false}
-          decelerationRate="normal"
+          decelerationRate="fast"
         />
       </View>
       <View className="mt-6">

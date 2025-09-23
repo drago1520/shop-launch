@@ -8,6 +8,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
+import { ThemeToggle } from './theme-toggle';
 
 type LinkItem = { id: string; route: string };
 type Props = {
@@ -93,6 +94,7 @@ export const TestsBottomSheet = ({ sheetRef, initialRoutes = [] }: Props) => {
             <View className="px-4 pb-3 pt-2" style={{ backgroundColor: background }}>
               <View className="mb-3 items-center">
                 <View className="w-full flex-row items-center">
+                  <ThemeToggle />
                   <View className="w-10" />
                   <Text variant="h3" className="flex-1 text-center">
                     Manage link buttons
