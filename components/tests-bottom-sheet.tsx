@@ -103,7 +103,7 @@ export const TestsBottomSheet = ({ sheetRef, initialRoutes = [] }: Props) => {
                 </View>
               </View>
               <View className="flex-row items-center gap-2">
-                <Input value={newRoute} onChangeText={t => dispatch({ type: 'setNewRoute', value: t })} className="h-12 flex-1" keyboardType={Platform.select({ ios: 'default', android: 'default', default: 'default' })} placeholder="/new-route" autoCapitalize="none" autoCorrect={false} returnKeyType="done" onSubmitEditing={() => dispatch({ type: 'add' })} selectTextOnFocus />
+                <Input value={newRoute} onChangeText={t => dispatch({ type: 'setNewRoute', value: t })} className="h-12 flex-1" placeholder="/new-route" autoCapitalize="none" autoCorrect={false} returnKeyType="done" onSubmitEditing={() => dispatch({ type: 'add' })} selectTextOnFocus />
                 <Button variant="default" size="lg" onPress={() => dispatch({ type: 'add' })} disabled={!canAdd}>
                   <Text>Add</Text>
                 </Button>
@@ -128,7 +128,7 @@ export const TestsBottomSheet = ({ sheetRef, initialRoutes = [] }: Props) => {
       </BottomSheetModal>
 
       {/* Floating trigger FAB */}
-      <Button size="fab" onPress={() => sheetRef?.current?.present()} className="absolute bottom-20 right-8 z-50" accessibilityLabel="Open tests bottom sheet">
+      <Button size="fab" onPress={() => sheetRef?.current?.present()} className="absolute bottom-40 right-8 z-50" accessibilityLabel="Open tests bottom sheet">
         <Text className="text-2xl">+</Text>
       </Button>
     </>

@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { TestsBottomSheet } from '@/components/tests-bottom-sheet';
 
 export { ErrorBoundary } from 'expo-router';
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ export default function RootLayout() {
                 <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
                 {/* <SafeAreaView className='flex flex-1'> */}
                 <Stack screenOptions={{ headerShown: false }} />
+                <TestsBottomSheet />
                 {/* </SafeAreaView> */}
                 <PortalHost />
                 <TrackPosthogPageView />

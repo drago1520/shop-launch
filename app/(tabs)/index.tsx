@@ -1,4 +1,3 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from '@/components/ui/text';
 import { ScrollView, View } from 'react-native';
 import { Link } from 'expo-router';
@@ -10,16 +9,21 @@ import { Image } from 'expo-image';
 import { LightRedRibbon } from '@/components/ui/ribbon';
 import { QuantityPicker } from '@/components/ui/quantity';
 import { TestsBottomSheet } from '@/components/tests-bottom-sheet';
-import { useRef } from 'react';
-import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import { Icon } from '@/components/ui/icon';
+import { ChevronDown } from 'lucide-react-native';
 
 export default function Page() {
   return (
     <ScrollView className="mt-4">
-      <View className="flex flex-row justify-between">
-        <Text>Доставка до адрес</Text>
-        <View className="flex flex-row">
-          <Text>Profile</Text>
+      <View className="mx-2 flex flex-row justify-between">
+        <View className="flex shrink flex-row items-end">
+          <Text className="max-w-[60%]" numberOfLines={2}>
+            Студентски Град блок 14 етаж 7 ап 29
+          </Text>
+          <Icon as={ChevronDown} />
+        </View>
+        <View className="flex flex-row gap-4">
+          <Text>Хей, Драго</Text>
           <Text>Orders</Text>
         </View>
       </View>
@@ -35,22 +39,6 @@ export default function Page() {
         <Text>Carousel with CRO elements - free shipping, support time, 30 day return, на изплащане, експресна доставка</Text>
       </View>
       <Carousel data={[1, 2, 3, 4, 5, 6]} renderItem={({ item }) => <View className="size-16 rounded bg-muted"></View>} />
-      <Link href={'/flashlist-paginated'} asChild>
-        <Button>
-          <Text>Flashlist demo</Text>
-        </Button>
-      </Link>
-      <TestsBottomSheet />
-      <Link className="mt-8" href={'/test-tabs'} asChild>
-        <Button>
-          <Text>Tabs</Text>
-        </Button>
-      </Link>
-      <Link className="mt-8" href={'/uhuu'} asChild>
-        <Button>
-          <Text>Tabs test</Text>
-        </Button>
-      </Link>
       <View className="mt-6">
         <Text className="mb-2">Featured</Text>
         <FlashList
