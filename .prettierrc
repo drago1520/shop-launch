@@ -1,5 +1,5 @@
 {
-  "printWidth": 9999,
+  "printWidth": 120,
   "arrowParens": "avoid",
   "plugins": ["prettier-plugin-tailwindcss"],
   "singleQuote": true,
