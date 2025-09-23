@@ -9,13 +9,13 @@ import { Image } from 'expo-image';
 import { LightRedRibbon } from '@/components/ui/ribbon';
 import { QuantityPicker } from '@/components/ui/quantity';
 import { Icon } from '@/components/ui/icon';
-import { ChevronDown, MapPin, Search, Truck } from 'lucide-react-native';
+import { ChevronDown, MapPin, Mic, Search, Truck } from 'lucide-react-native';
 import { Input } from '@/components/ui/input';
 // import {t} from "react-native-tailwindcss"
 
 export default function Page() {
   return (
-    <ScrollView className="mt-4" showsVerticalScrollIndicator={false}>
+    <ScrollView className="mt-1" showsVerticalScrollIndicator={false}>
       <View className="mx-2 flex flex-row items-center justify-between">
         <View className="flex shrink flex-row items-center gap-0.5">
           <Text className="max-w-[60%] shrink" numberOfLines={2}>
@@ -31,11 +31,14 @@ export default function Page() {
           </View>
         </View>
       </View>
-      <View className="mx-2 mt-4 h-16 flex-row items-center bg-background shadow dark:bg-input">
+      <View className="mx-2 my-4 h-16 flex-row items-center rounded bg-background shadow-sm dark:bg-input">
         {/* style={[t.shadow]} */}
-        <Input placeholder="Търси от 30 000 стоки..." className="h-full border-0" />
+        <Input placeholder="Търси от 30 000 стоки..." className="h-full border-0 text-xl leading-none" />
         <View className="flex-row items-center">
-          <Button size={'icon'} variant={'ghost'}>
+          <Button size={'icon'} className="pr-4" variant={'ghost'}>
+            <Icon as={Mic} />
+          </Button>
+          <Button size={'icon'} variant={'ghost'} className="pr-4">
             <Icon as={Search} />
           </Button>
         </View>
