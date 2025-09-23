@@ -1,7 +1,5 @@
 import { Text } from '@/components/ui/text';
 import { ScrollView, View } from 'react-native';
-import { Link } from 'expo-router';
-import { Carousel } from 'react-native-flash-carousel';
 import { Button } from '@/components/ui/button';
 import { FlashList } from '@shopify/flash-list';
 import { width } from '@/lib/utils';
@@ -11,9 +9,14 @@ import { QuantityPicker } from '@/components/ui/quantity';
 import { Icon } from '@/components/ui/icon';
 import { ChevronDown, MapPin, Mic, Search, Truck } from 'lucide-react-native';
 import { Input } from '@/components/ui/input';
+import CategoryCard from '@/components/category-card';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useThemeColors } from '@/lib/theme';
 // import {t} from "react-native-tailwindcss"
 
 export default function Page() {
+  const { background } = useThemeColors();
+
   return (
     <ScrollView className="mt-1" showsVerticalScrollIndicator={false}>
       <View className="mx-2 flex flex-row items-center justify-between">
@@ -43,24 +46,35 @@ export default function Page() {
           </Button>
         </View>
       </View>
-      <FlashList
-        horizontal
-        data={Array.from({ length: 1000 }, (_, i) => ({ id: `item-${i + 1}` }))}
-        renderItem={({ item }) => <View className="size-24 rounded-full bg-muted"></View>}
-        keyExtractor={item => item.id}
-        showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={() => <View className="size-4" />}
-        decelerationRate={'normal'}
-      />
+      <View className="relative">
+        <FlashList
+          horizontal
+          data={Array.from({ length: 1000 }, (_, i) => ({
+            id: `item-${i + 1}`,
+            uri:
+              i % 2 === 0
+                ? 'https://images.emart.eu/picmenu/darvo-i-biren-karton_1532007661644.jpg'
+                : 'https://images.emart.eu/picmenu/martenici-em-art_1531572867422.jpg',
+            name: i % 2 === 0 ? 'Прежди и шнурове за мартеници' : 'Мартеници Ем Арт',
+          }))}
+          renderItem={({ item }) => <CategoryCard name={item.name} uri={item.uri} />}
+          keyExtractor={item => item.id}
+          showsHorizontalScrollIndicator={false}
+          ItemSeparatorComponent={() => <View className="size-2" />}
+          decelerationRate={'normal'}
+        />
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 0)', background]} //NEVER use 'transparent'
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 40, pointerEvents: 'none' }}
+        />
+      </View>
       <View>
         <Text>
           Carousel with CRO elements - free shipping, support time, 30 day return, на изплащане, експресна доставка
         </Text>
       </View>
-      <Carousel
-        data={[1, 2, 3, 4, 5, 6]}
-        renderItem={({ item }) => <View className="size-16 rounded bg-muted"></View>}
-      />
       <View className="mt-6">
         <Text className="mb-2">Featured</Text>
         <FlashList
