@@ -9,6 +9,9 @@ import { width } from '@/lib/utils';
 import { Image } from 'expo-image';
 import { LightRedRibbon } from '@/components/ui/ribbon';
 import { QuantityPicker } from '@/components/ui/quantity';
+import { TestsBottomSheet } from '@/components/tests-bottom-sheet';
+import { useRef } from 'react';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 
 export default function Page() {
   return (
@@ -37,6 +40,7 @@ export default function Page() {
           <Text>Flashlist demo</Text>
         </Button>
       </Link>
+      <TestsBottomSheet />
       <Link className="mt-8" href={'/test-tabs'} asChild>
         <Button>
           <Text>Tabs</Text>

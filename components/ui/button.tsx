@@ -35,6 +35,7 @@ const buttonVariants = cva(
         sm: cn('h-9 gap-1.5 rounded-md px-3 sm:h-8', Platform.select({ web: 'has-[>svg]:px-2.5' })),
         lg: cn('h-11 rounded-md px-6 sm:h-10', Platform.select({ web: 'has-[>svg]:px-4' })),
         icon: 'h-10 w-10 sm:h-9 sm:w-9',
+        fab: 'h-14 w-14 rounded-full shadow-sm sm:h-12 sm:w-12', // new: circular FAB size
       },
     },
     defaultVariants: {
@@ -59,6 +60,7 @@ const buttonTextVariants = cva(cn('text-sm font-medium text-foreground', Platfor
       sm: '',
       lg: '',
       icon: '',
+      fab: '', // new
     },
   },
   defaultVariants: {
