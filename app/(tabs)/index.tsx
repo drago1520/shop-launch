@@ -5,14 +5,37 @@ import { FlashList } from '@shopify/flash-list';
 import { width } from '@/lib/utils';
 import { Image } from 'expo-image';
 import { LightRedRibbon } from '@/components/ui/ribbon';
-import { QuantityPicker } from '@/components/ui/quantity';
 import { Icon } from '@/components/ui/icon';
-import { ChevronDown, MapPin, Mic, Search, Truck } from 'lucide-react-native';
+import { Check, ChevronDown, MapPin, Mic, Search, Truck } from 'lucide-react-native';
 import { Input } from '@/components/ui/input';
 import CategoryCard from '@/components/category-card';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useThemeColors } from '@/lib/theme';
 // import {t} from "react-native-tailwindcss"
+import { Rating } from 'react-native-ratings';
+import { ShoppingCartAdd } from '@/components/ui/icon-custom';
+
+type Product = {
+  id: string; //cat_no
+  url: string;
+  rating: number;
+  image: string;
+  image2?: string;
+  title: string;
+  p1: number; //price
+  p2: number;
+  p3: number;
+  q1: number; //quantity
+  q2: number;
+  q3: number;
+  unitLabel: 'бр.' | 'пак.' | 'броя' | string; //мярка - бр. пак. каш.
+  brand?: string;
+  currSign: string; //лв. $
+  pickup: boolean;
+  sameDay: boolean; //delivery
+  delivery: boolean;
+  unitsPerPack: number;
+};
 
 export default function Page() {
   const { background } = useThemeColors();
@@ -70,16 +93,15 @@ export default function Page() {
           style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 40, pointerEvents: 'none' }}
         />
       </View>
-      <View>
+      {/* <View>
         <Text>
           Carousel with CRO elements - free shipping, support time, 30 day return, на изплащане, експресна доставка
         </Text>
-      </View>
+      </View> */}
       <View className="mt-6">
-        <Text className="mb-2">Featured</Text>
         <FlashList
           horizontal
-          data={Array.from({ length: 10 }, (_, i) => ({ id: `item-${i + 1}` }))}
+          data={Array.from({ length: 10 }, (_, i) => ({ id: `банер 9:16 (${i + 1})` }))}
           renderItem={({ item }) => (
             <View
               style={{ width: Math.round(width * 0.8), aspectRatio: 9 / 16 }}
@@ -96,27 +118,77 @@ export default function Page() {
         />
       </View>
       <View className="mt-6">
-        <View style={{ margin: -4 }}>
+        <View>
           <FlashList
             data={[1, 2, 3]}
             numColumns={2}
             renderItem={({ item }) => (
-              <View style={{ flex: 1, padding: 4 }}>
+              <View className="flex-1 items-start p-1 py-4">
                 <Image
                   source={{ uri: 'https://picsum.photos/800/800' }}
                   style={{ width: '100%', aspectRatio: 1 }}
                   contentFit="cover"
                   cachePolicy="none"
                 />
-                <View>
-                  <Text numberOfLines={1} className="text-xs text-muted-foreground">
-                    Наниз от стъклени мъниста топче 6 мм дупка 1 мм прозрачен галванизиран с AB покритие цвят черен дъга
-                    жълто-розов отенък ~66 броя
-                  </Text>
+                <Rating
+                  readonly
+                  imageSize={20}
+                  startingValue={5}
+                  ratingBackgroundColor={background}
+                  onFinishRating={(rating: number) => console.log(`rating: ${rating}`)}
+                  style={{ backgroundColor: background, marginTop: 6 }}
+                />
+                <Text className="text-sm text-muted-foreground" ellipsizeMode="middle" numberOfLines={3}>
+                  Декоративни карфици 55 мм цветни сърца -30 броя
+                </Text>
+                <Text className="my-0.5 text-lg font-semibold">
+                  1.37 лв. <Text className="text-muted-foreground">/</Text> 0.70 €
+                </Text>
+                {/* <Text className="text-sm text-muted-foreground">(0.65 лв / 0.32 € бр.)</Text> */}
+                <View className="gap-1">
+                  <View className="w-full flex-row items-start justify-between">
+                    <Text className="text-sm text-brand-blue-foreground">10-19 пак.</Text>
+                    <View className="items-end">
+                      <Text className="text-sm font-semibold text-brand-blue-foreground">
+                        1.10 лв. <Text className="font-normal text-muted-foreground">/</Text> 0.56 €
+                      </Text>
+                      <Text className="text-sm font-semibold text-brand-blue-foreground">
+                        ({Math.round(((1.37 - 1.1) / 1.37) * 100)} %)
+                      </Text>
+                      {/* <Text className='text-sm font-light text-brand-blue-foreground'>{(1.10/30).toFixed(2)} лв. / {(0.7/30).toFixed(2)} € бр.</Text> */}
+                    </View>
+                  </View>
+                  <View className="w-full flex-row items-start justify-between">
+                    <Text className="text-sm text-brand-blue-foreground">20 пак. +</Text>
+                    <View className="items-end">
+                      <Text className="text-sm font-semibold text-brand-blue-foreground">
+                        0.96 лв. <Text className="font-normal text-muted-foreground">/</Text> 0.49 €
+                      </Text>
+                      <Text className="text-sm font-semibold text-brand-blue-foreground">
+                        ({Math.round(((1.37 - 0.96) / 1.37) * 100)} %)
+                      </Text>
+                      {/* <Text className='text-sm font-light text-brand-blue-foreground'>{(1.10/30).toFixed(2)} лв. / {(0.7/30).toFixed(2)} € бр.</Text> */}
+                    </View>
+                  </View>
                 </View>
-                <LightRedRibbon />
-                <View className="mt-2">
-                  <QuantityPicker />
+                <View>
+                  <View className="shrink flex-row items-center gap-0.5">
+                    <Icon as={Check} className="text-brand-green-foreground" size={16} />
+                    <Text className="text-sm text-brand-green-foreground">Вземане от магазин</Text>
+                  </View>
+                  <View className="shrink flex-row items-center gap-0.5">
+                    <Icon as={Check} className="text-brand-green-foreground" size={16} />
+                    <Text className="text-sm text-brand-green-foreground">Доставка същия ден</Text>
+                  </View>
+                  <View className="shrink flex-row items-center gap-0.5">
+                    <Icon as={Check} className="text-brand-green-foreground" size={16} />
+                    <Text className="text-sm text-brand-green-foreground">Доставка</Text>
+                  </View>
+                </View>
+                <View className="self-end">
+                  <Button size={'icon'} variant={'outline'} className="border-foreground">
+                    <ShoppingCartAdd style={{ marginRight: 4 }} />
+                  </Button>
                 </View>
               </View>
             )}
