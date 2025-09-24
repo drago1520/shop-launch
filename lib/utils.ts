@@ -7,3 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const { width, height, fontScale, scale } = Dimensions.get('screen');
+
+export const euro = (bgn: number) => bgn && (bgn * 1.95583).toFixed(2);
