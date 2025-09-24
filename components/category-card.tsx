@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Image } from 'expo-image';
 
 export default function CategoryCard({
-  width = 92,
+  width = 88,
   name = ' Прежди и шнурове за мартеници',
   uri = 'https://images.emart.eu/picmenu/darvo-i-biren-karton_1532007661644.jpg',
 }: {

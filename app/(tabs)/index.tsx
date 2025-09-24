@@ -6,14 +6,14 @@ import { width } from '@/lib/utils';
 import { Image } from 'expo-image';
 import { LightRedRibbon } from '@/components/ui/ribbon';
 import { Icon } from '@/components/ui/icon';
-import { Check, ChevronDown, MapPin, Mic, Search, Truck } from 'lucide-react-native';
+import { Check, ChevronDown, MapPin, Truck } from 'lucide-react-native';
 import { Input } from '@/components/ui/input';
 import CategoryCard from '@/components/category-card';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useThemeColors } from '@/lib/theme';
 // import {t} from "react-native-tailwindcss"
 import { Rating } from 'react-native-ratings';
 import { ShoppingCartAdd } from '@/components/ui/icon-custom';
+import SearchBar from '@/components/search-bar';
 
 type Product = {
   id: string; //cat_no
@@ -44,32 +44,21 @@ export default function Page() {
     <ScrollView className="mt-1" showsVerticalScrollIndicator={false}>
       <View className="mx-2 flex flex-row items-center justify-between">
         <View className="flex shrink flex-row items-center gap-0.5">
-          <Text className="max-w-[60%] shrink" numberOfLines={2}>
-            <Icon as={MapPin} className="size-4" /> Студентски Град блок 14 етаж 7 ап 53
+          <Text className="w-fit max-w-[80%] shrink" numberOfLines={1}>
+            <Icon as={MapPin} className="size-4" /> Студентски Град блок 14
           </Text>
           <Icon as={ChevronDown} className="size-5" />
         </View>
-        <View className="flex flex-row items-start gap-4">
-          {/* <Text>Хей, Драго!</Text> */}
-          <View className="items-center">
-            <Icon as={Truck} />
-            <Text>Поръчки</Text>
-          </View>
-        </View>
+        {/* <Text>Хей, Драго!</Text> */}
+        <Button variant={'ghost'} className="h-fit flex-col gap-0">
+          <Icon className="text-secondary" as={Truck} />
+          <Text className="text-secondary">Поръчки</Text>
+        </Button>
       </View>
-      <View className="mx-2 my-4 h-16 flex-row items-center rounded bg-background shadow-sm dark:bg-input">
-        {/* style={[t.shadow]} */}
-        <Input placeholder="Търси от 30 000 стоки..." className="h-full border-0 text-xl leading-none" />
-        <View className="flex-row items-center">
-          <Button size={'icon'} className="pr-4" variant={'ghost'}>
-            <Icon as={Mic} />
-          </Button>
-          <Button size={'icon'} variant={'ghost'} className="pr-4">
-            <Icon as={Search} />
-          </Button>
-        </View>
+      <View className="mx-2 my-2 flex-1">
+        <SearchBar />
       </View>
-      <View className="relative">
+      <View className="relative mt-6">
         <FlashList
           horizontal
           data={Array.from({ length: 1000 }, (_, i) => ({
@@ -85,12 +74,6 @@ export default function Page() {
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={() => <View className="size-2" />}
           decelerationRate={'normal'}
-        />
-        <LinearGradient
-          colors={['rgba(255, 255, 255, 0)', background]} //NEVER use 'transparent'
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 40, pointerEvents: 'none' }}
         />
       </View>
       {/* <View>
@@ -110,7 +93,12 @@ export default function Page() {
               <Text>{item.id}</Text>
             </View>
           )}
-          snapToInterval={Math.round(width * 0.8) + 12} //Card width + separator width
+          // first item => 0 (flush left)
+          // subsequent => i * (cardWidth + separator) - halfRemaining
+          // halfRemaining = (width - cardWidth)/2 so that the card's center aligns with screen center
+          snapToOffsets={Array.from({ length: 10 }, (_, i) =>
+            i === 0 ? 0 : i * (Math.round(width * 0.8) + 12) - (width - Math.round(width * 0.8)) / 2,
+          )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
           showsHorizontalScrollIndicator={false}
@@ -152,9 +140,9 @@ export default function Page() {
                       <Text className="text-sm font-semibold text-brand-blue-foreground">
                         1.10 лв. <Text className="font-normal text-muted-foreground">/</Text> 0.56 €
                       </Text>
-                      <Text className="text-sm font-semibold text-brand-blue-foreground">
+                      {/* <Text className="text-sm font-semibold text-brand-blue-foreground">
                         ({Math.round(((1.37 - 1.1) / 1.37) * 100)} %)
-                      </Text>
+                      </Text> */}
                       {/* <Text className='text-sm font-light text-brand-blue-foreground'>{(1.10/30).toFixed(2)} лв. / {(0.7/30).toFixed(2)} € бр.</Text> */}
                     </View>
                   </View>
@@ -164,9 +152,9 @@ export default function Page() {
                       <Text className="text-sm font-semibold text-brand-blue-foreground">
                         0.96 лв. <Text className="font-normal text-muted-foreground">/</Text> 0.49 €
                       </Text>
-                      <Text className="text-sm font-semibold text-brand-blue-foreground">
+                      {/* <Text className="text-sm font-semibold text-brand-blue-foreground">
                         ({Math.round(((1.37 - 0.96) / 1.37) * 100)} %)
-                      </Text>
+                      </Text> */}
                       {/* <Text className='text-sm font-light text-brand-blue-foreground'>{(1.10/30).toFixed(2)} лв. / {(0.7/30).toFixed(2)} € бр.</Text> */}
                     </View>
                   </View>
