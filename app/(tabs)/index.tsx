@@ -2,7 +2,7 @@ import { Text } from '@/components/ui/text';
 import { ScrollView, View } from 'react-native';
 import { Button } from '@/components/ui/button';
 import { FlashList } from '@shopify/flash-list';
-import { width } from '@/lib/utils';
+import { cn, width } from '@/lib/utils';
 import { Image } from 'expo-image';
 import { Icon } from '@/components/ui/icon';
 import { ChevronDown, MapPin, Truck } from 'lucide-react-native';
@@ -11,8 +11,11 @@ import CategoryCard from '@/components/category-card';
 import SearchBar from '@/components/search-bar';
 import ProductCard from '@/components/cards/product-card';
 import { sampleProducts } from '@/components/cards/product-data';
+import { CATEGORY_NAMES } from '@/models/random-data';
+import { useState } from 'react';
 
 export default function Page() {
+  const [catName, setCatName] = useState('Всички');
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View className="mx-2 flex flex-row items-center justify-between">
@@ -28,10 +31,31 @@ export default function Page() {
           <Text className="text-secondary">Поръчки</Text>
         </Button>
       </View>
-      <View className="mx-2 my-2 flex-1">
+      <View className="mx-2 flex-1">
         <SearchBar />
       </View>
-      <View className="relative mt-2">
+      <View className="flex-1">
+        <FlashList
+          horizontal
+          data={CATEGORY_NAMES}
+          renderItem={({ item }) => (
+            <Button
+              variant={'ghost'}
+              className="h-auto flex-col items-center gap-1 py-2"
+              onPress={() => setCatName(item)}
+            >
+              <Text className={cn('font-medium text-muted-foreground', catName === item && 'text-foreground')}>
+                {item}
+              </Text>
+              <View
+                className={cn('h-1.5 w-5 rounded-full bg-foreground', catName === item ? 'opacity-100' : 'opacity-0')}
+              />
+            </Button>
+          )}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+      <View className="relative">
         <FlashList
           horizontal
           data={Array.from({ length: 1000 }, (_, i) => ({
