@@ -4,24 +4,17 @@ import { Button } from '@/components/ui/button';
 import { FlashList } from '@shopify/flash-list';
 import { width } from '@/lib/utils';
 import { Image } from 'expo-image';
-import { LightRedRibbon } from '@/components/ui/ribbon';
 import { Icon } from '@/components/ui/icon';
-import { Check, ChevronDown, MapPin, Truck } from 'lucide-react-native';
-import { Input } from '@/components/ui/input';
+import { ChevronDown, MapPin, Truck } from 'lucide-react-native';
 import CategoryCard from '@/components/category-card';
-import { useThemeColors } from '@/lib/theme';
 // import {t} from "react-native-tailwindcss"
-import { Rating } from 'react-native-ratings';
-import { ShoppingCartAdd } from '@/components/ui/icon-custom';
 import SearchBar from '@/components/search-bar';
 import ProductCard from '@/components/cards/product-card';
 import { sampleProducts } from '@/components/cards/product-data';
 
 export default function Page() {
-  const { background } = useThemeColors();
-
   return (
-    <ScrollView className="mt-1" showsVerticalScrollIndicator={false}>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View className="mx-2 flex flex-row items-center justify-between">
         <View className="flex shrink flex-row items-center gap-0.5">
           <Text className="w-fit max-w-[80%] shrink" numberOfLines={1}>
@@ -38,7 +31,7 @@ export default function Page() {
       <View className="mx-2 my-2 flex-1">
         <SearchBar />
       </View>
-      <View className="relative mt-6">
+      <View className="relative mt-2">
         <FlashList
           horizontal
           data={Array.from({ length: 1000 }, (_, i) => ({
@@ -61,17 +54,24 @@ export default function Page() {
           Carousel with CRO elements - free shipping, support time, 30 day return, на изплащане, експресна доставка
         </Text>
       </View> */}
-      <View className="mt-6">
+      <View className="mt-2">
         <FlashList
           horizontal
-          data={Array.from({ length: 10 }, (_, i) => ({ id: `банер 9:16 (${i + 1})` }))}
+          data={[
+            { id: '1', image: require('@/assets/images/1.webp') },
+            { id: '2', image: require('@/assets/images/2.webp') },
+            { id: '3', image: require('@/assets/images/1.webp') },
+            { id: '4', image: require('@/assets/images/2.webp') },
+            { id: '5', image: require('@/assets/images/1.webp') },
+            { id: '6', image: require('@/assets/images/2.webp') },
+            { id: '7', image: require('@/assets/images/1.webp') },
+            { id: '8', image: require('@/assets/images/2.webp') },
+          ]}
           renderItem={({ item }) => (
-            <View
-              style={{ width: Math.round(width * 0.8), aspectRatio: 9 / 16 }}
-              className="items-center justify-center overflow-hidden rounded-xl bg-muted"
-            >
-              <Text>{item.id}</Text>
-            </View>
+            <Image
+              source={item.image}
+              style={{ width: Math.round(width * 0.8), aspectRatio: 9 / 16, borderRadius: 4 }}
+            />
           )}
           // first item => 0 (flush left)
           // subsequent => i * (cardWidth + separator) - halfRemaining
@@ -85,7 +85,7 @@ export default function Page() {
           decelerationRate="fast"
         />
       </View>
-      <View className="mt-6">
+      <View className="mt-2">
         <View>
           <FlashList
             data={sampleProducts}

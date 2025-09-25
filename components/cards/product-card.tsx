@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import { Image } from 'expo-image';
 import { SelectProducts } from './product-data';
 import { euro } from '@/lib/utils';
+import LightRedRibbon from '../ui/ribbon';
 
 export default function ProductCard({ data }: { data: SelectProducts }) {
   // prettier-ignore
@@ -37,6 +38,7 @@ export default function ProductCard({ data }: { data: SelectProducts }) {
       {/* <Text className="text-sm text-muted-foreground">(0.65 {currSign} / 0.32 € {unitLabel})</Text> */}
       {p2 && q1 && (
         <View className="gap-1">
+          <LightRedRibbon />
           <QuantityDiscount
             basePrice={p1}
             currSign={currSign}
