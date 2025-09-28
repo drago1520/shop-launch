@@ -105,6 +105,7 @@ export default function Page() {
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
+          contentContainerStyle={{ paddingLeft: 4 }}
           showsHorizontalScrollIndicator={false}
           decelerationRate="fast"
         />
