@@ -1,8 +1,8 @@
 import { useThemeColors } from '@/lib/theme';
 import { BottomSheetBackdrop, BottomSheetModal } from '@gorhom/bottom-sheet';
 import { FlashList } from '@shopify/flash-list';
-import { RefObject, useRef, useReducer, useEffect } from 'react';
-import { Platform, View, Pressable } from 'react-native';
+import { RefObject, useRef, useEffect, useState, useReducer } from 'react';
+import { View, Pressable } from 'react-native';
 import { Text } from './ui/text';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -16,34 +16,28 @@ type Props = {
   initialRoutes?: string[];
 };
 
-// Move to module scope to avoid unnecessary effect deps
 const STORAGE_KEY = '@tests_bottom_sheet_routes';
-const normalizeRoute = (s: string) => {
-  const r = s.trim().replace(/\s+/g, '-');
-  return r ? (r.startsWith('/') ? r : `/${r}`) : '';
-};
 
-// reducer state and actions
-type State = { routes: LinkItem[]; newRoute: string };
-type Action = { type: 'hydrate'; items: LinkItem[] } | { type: 'setNewRoute'; value: string } | { type: 'add' };
+type State = LinkItem[];
+type Action = { type: 'set'; items: LinkItem[] } | { type: 'add'; route: string } | { type: 'delete'; id: string };
 
 const reducer = (state: State, action: Action): State => {
-  if (action.type === 'hydrate') {
-    const ns = { ...state, routes: action.items, newRoute: '' };
-    void AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(ns.routes));
-    return ns;
+  let newState: State;
+  switch (action.type) {
+    case 'set':
+      newState = action.items;
+      break;
+    case 'add':
+      newState = [{ id: `${Date.now()}`, route: action.route }, ...state];
+      break;
+    case 'delete':
+      newState = state.filter(r => r.id !== action.id);
+      break;
+    default:
+      return state;
   }
-  if (action.type === 'setNewRoute') {
-    return { ...state, newRoute: action.value };
-  }
-  if (action.type === 'add') {
-    const v = normalizeRoute(state.newRoute);
-    const routes = v ? [{ id: `${Date.now()}`, route: v }, ...state.routes] : state.routes;
-    const ns = { routes, newRoute: '' };
-    void AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(ns.routes));
-    return ns;
-  }
-  return state;
+  AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
+  return newState;
 };
 
 export const TestsBottomSheet = ({ sheetRef, initialRoutes = [] }: Props) => {
@@ -52,39 +46,43 @@ export const TestsBottomSheet = ({ sheetRef, initialRoutes = [] }: Props) => {
   const { background, muted } = useThemeColors();
   const router = useRouter();
 
-  const [state, dispatch] = useReducer(
+  const [routes, dispatch] = useReducer(
     reducer,
-    initialRoutes,
-    (arr): State => ({
-      routes: arr.map((r, i) => ({ id: `${Date.now()}-${i}`, route: normalizeRoute(r) })),
-      newRoute: '',
-    }),
+    initialRoutes.map((r, i) => ({ id: `${Date.now()}-${i}`, route: r.trim() })),
   );
-  const { routes, newRoute } = state;
+  const [newRoute, setNewRoute] = useState('');
 
-  // hydrate from storage once
   useEffect(() => {
-    let alive = true;
-    (async () => {
-      try {
-        const raw = await AsyncStorage.getItem(STORAGE_KEY);
-        if (!alive || !raw) return;
-        const arr = JSON.parse(raw) as LinkItem[];
-        dispatch({ type: 'hydrate', items: Array.isArray(arr) ? arr : [] });
-      } catch {}
-    })();
-    return () => {
-      alive = false;
-    };
+    AsyncStorage.getItem(STORAGE_KEY)
+      .then(raw => {
+        if (raw) {
+          const arr = JSON.parse(raw) as LinkItem[];
+          if (Array.isArray(arr)) dispatch({ type: 'set', items: arr });
+        }
+      })
+      .catch(() => {});
   }, []);
 
-  const canAdd = !!normalizeRoute(newRoute);
+  const addRoute = () => {
+    const v = newRoute.trim();
+    if (v) {
+      dispatch({ type: 'add', route: v });
+      setNewRoute('');
+    }
+  };
 
   if (!__DEV__) return null;
 
   return (
     <>
-      <BottomSheetModal ref={sheetRef} backdropComponent={props => <BottomSheetBackdrop appearsOnIndex={0} disappearsOnIndex={-1} {...props} />} snapPoints={['80%']} enableDynamicSizing={false} backgroundStyle={{ backgroundColor: background }} handleIndicatorStyle={{ backgroundColor: muted }}>
+      <BottomSheetModal
+        ref={sheetRef}
+        backdropComponent={props => <BottomSheetBackdrop appearsOnIndex={0} disappearsOnIndex={-1} {...props} />}
+        snapPoints={['80%']}
+        enableDynamicSizing={false}
+        backgroundStyle={{ backgroundColor: background }}
+        handleIndicatorStyle={{ backgroundColor: muted }}
+      >
         <FlashList
           data={routes}
           keyExtractor={item => item.id}
@@ -104,9 +102,19 @@ export const TestsBottomSheet = ({ sheetRef, initialRoutes = [] }: Props) => {
                   </Button>
                 </View>
               </View>
-              <View className="flex-row items-center gap-2">
-                <Input value={newRoute} onChangeText={t => dispatch({ type: 'setNewRoute', value: t })} className="h-12 flex-1" placeholder="/new-route" autoCapitalize="none" autoCorrect={false} returnKeyType="done" onSubmitEditing={() => dispatch({ type: 'add' })} selectTextOnFocus />
-                <Button variant="default" size="lg" onPress={() => dispatch({ type: 'add' })} disabled={!canAdd}>
+              <View className="mt-2 flex-row items-center gap-2">
+                <Input
+                  value={newRoute}
+                  onChangeText={setNewRoute}
+                  className="h-12 flex-1"
+                  placeholder="/new-route"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  returnKeyType="done"
+                  onSubmitEditing={addRoute}
+                  selectTextOnFocus
+                />
+                <Button variant="default" size="lg" onPress={addRoute} disabled={!newRoute.trim()}>
                   <Text>Add</Text>
                 </Button>
               </View>
@@ -114,23 +122,34 @@ export const TestsBottomSheet = ({ sheetRef, initialRoutes = [] }: Props) => {
           }
           ListHeaderComponentStyle={{ backgroundColor: background }}
           renderItem={({ item }) => (
-            <Pressable
-              onPress={() => {
-                router.push(item.route);
-                sheetRef?.current?.dismiss();
-              }}
-            >
-              <View className="flex-row items-center justify-between border-b border-border px-4 py-3">
-                <Text variant="large">{item.route}</Text>
-                <Text className="text-xl">↗</Text>
-              </View>
-            </Pressable>
+            <View className="flex-row items-center justify-between border-b border-border px-4 py-3">
+              <Pressable
+                onPress={() => {
+                  router.push(item.route);
+                  sheetRef?.current?.dismiss();
+                }}
+                className="flex-1"
+              >
+                <View className="flex-row items-center gap-2">
+                  <Text variant="large">{item.route}</Text>
+                  <Text className="text-xl">↗</Text>
+                </View>
+              </Pressable>
+              <Button variant="ghost" onPress={() => dispatch({ type: 'delete', id: item.id })}>
+                <Text className="text-xl text-destructive">✕</Text>
+              </Button>
+            </View>
           )}
         />
       </BottomSheetModal>
 
       {/* Floating trigger FAB */}
-      <Button size="fab" onPress={() => sheetRef?.current?.present()} className="absolute bottom-40 right-8 z-50" accessibilityLabel="Open tests bottom sheet">
+      <Button
+        size="fab"
+        onPress={() => sheetRef?.current?.present()}
+        className="absolute bottom-40 right-8 z-50"
+        accessibilityLabel="Open tests bottom sheet"
+      >
         <Text className="text-2xl">+</Text>
       </Button>
     </>

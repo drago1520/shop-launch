@@ -1,15 +1,17 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { accounts, accountsRelations } from './schema/accounts';
-import { sessions, sessionsRelations } from './schema/sessions';
-import { users, usersRelations } from './schema/users';
-import { verifications } from './schema/verifications';
-import contacts from './schema/contacts';
+import { drizzle } from 'drizzle-orm/mysql2';
+import * as inmartaTables from '@/models/drizzle-inmarta/schema';
+import * as iimartaTables from '@/models/drizzle-iimarta/schema';
+import * as imartapTables from '@/models/drizzle-imartap/schema';
+import mysql from 'mysql2/promise';
 
-const tables = { users, sessions, accounts, verifications, contacts };
-const relations = { usersRelations, sessionsRelations, accountsRelations };
-export const schema = { ...tables, ...relations };
-
-export const db = drizzle(process.env.DATABASE_URL!, { schema });
+const inmartaConnection = await mysql.createConnection({
+  uri: process.env.DATABASE_URL,
+});
+const inmartaSchema = { ...inmartaTables }; //add relationships if any
+/**
+ * @description inmarta или друга за специфичния език.
+ */
+export const db = drizzle({ client: inmartaConnection, schema: inmartaSchema, mode: 'default' });
 
 // Log connection (but not the full URL for security)
 console.log(`Connected to database at ${new URL(process.env.DATABASE_URL!).host}`);

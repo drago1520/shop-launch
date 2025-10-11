@@ -1,0 +1,4324 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "mysql",
+  "tables": {
+    "greshni_logove": {
+      "name": "greshni_logove",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pass": {
+          "autoincrement": false,
+          "name": "pass",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data": {
+          "autoincrement": false,
+          "name": "data",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "browser": {
+          "autoincrement": false,
+          "name": "browser",
+          "type": "varchar(1023)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "komentar": {
+          "autoincrement": false,
+          "name": "komentar",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otsite": {
+          "autoincrement": false,
+          "name": "otsite",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "greshni_logove_id": {
+          "name": "greshni_logove_id",
+          "columns": ["id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "item": {
+      "name": "item",
+      "columns": {
+        "item_id": {
+          "autoincrement": true,
+          "name": "item_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porach_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porach_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cat_id": {
+          "autoincrement": false,
+          "name": "cat_id",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_br": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "item_br",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_dat": {
+          "autoincrement": false,
+          "name": "item_dat",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "it_cena": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "it_cena",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "it_suma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "it_suma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koment": {
+          "autoincrement": false,
+          "name": "koment",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "komentadm": {
+          "autoincrement": false,
+          "name": "komentadm",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_br_new": {
+          "autoincrement": false,
+          "name": "item_br_new",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "it_suma_new": {
+          "autoincrement": false,
+          "name": "it_suma_new",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ot_adm": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "ot_adm",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "no_nal": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "no_nal",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "grup_otstup": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "grup_otstup",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prioritet_micro": {
+          "autoincrement": false,
+          "name": "prioritet_micro",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "promot": {
+          "autoincrement": false,
+          "name": "promot",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "it_cena_new": {
+          "autoincrement": false,
+          "name": "it_cena_new",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "promot_new": {
+          "autoincrement": false,
+          "name": "promot_new",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cat_no": {
+          "autoincrement": false,
+          "name": "cat_no",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime": {
+          "autoincrement": false,
+          "name": "ime",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "miarka": {
+          "autoincrement": false,
+          "name": "miarka",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_lat": {
+          "autoincrement": false,
+          "name": "ime_lat",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "potr_id": {
+          "autoincrement": false,
+          "name": "potr_id",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "potr_ime": {
+          "autoincrement": false,
+          "name": "potr_ime",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "q0011_sklad": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q0011_sklad",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q03_bucuresti": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q03_bucuresti",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q12_burgas": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q12_burgas",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q14_burgascentar": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q14_burgascentar",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q15_burgashobby": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q15_burgashobby",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q22_sofia": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q22_sofia",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q23_sofiandk": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q23_sofiandk",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q24_szagora": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q24_szagora",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q26_varna": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q26_varna",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q28_ruse": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q28_ruse",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q31_vtarnovo": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q31_vtarnovo",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q32_shumen": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q32_shumen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q34_yambol": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q34_yambol",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q36_haskovo": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q36_haskovo",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q38_goriahovica": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q38_goriahovica",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q41_sliven": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q41_sliven",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q43_plovdiv": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q43_plovdiv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q51_burgaskiki": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q51_burgaskiki",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q100_slujeben": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q100_slujeben",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prom": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "prom",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "zelen": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "zelen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nalichnost": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "nalichnost",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gramaj": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "gramaj",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "total",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obem_dalzhina": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "obem_dalzhina",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obem_visochina": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "obem_visochina",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obem_shirina": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "obem_shirina",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obem_total": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "obem_total",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_item_id": {
+          "name": "item_item_id",
+          "columns": ["item_id"]
+        }
+      },
+      "indexes": {
+        "porach_id": {
+          "name": "porach_id",
+          "columns": ["porach_id"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "itemiztrit": {
+      "name": "itemiztrit",
+      "columns": {
+        "item_id": {
+          "autoincrement": true,
+          "name": "item_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porach_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porach_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cat_id": {
+          "autoincrement": false,
+          "name": "cat_id",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_br": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "item_br",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_dat": {
+          "autoincrement": false,
+          "name": "item_dat",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "it_cena": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "it_cena",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "it_suma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "it_suma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koment": {
+          "autoincrement": false,
+          "name": "koment",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "komentadm": {
+          "autoincrement": false,
+          "name": "komentadm",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item_br_new": {
+          "autoincrement": false,
+          "name": "item_br_new",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "it_suma_new": {
+          "autoincrement": false,
+          "name": "it_suma_new",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ot_adm": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "ot_adm",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "no_nal": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "no_nal",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "grup_otstup": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "grup_otstup",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prioritet_micro": {
+          "autoincrement": false,
+          "name": "prioritet_micro",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "promot": {
+          "autoincrement": false,
+          "name": "promot",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "it_cena_new": {
+          "autoincrement": false,
+          "name": "it_cena_new",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "promot_new": {
+          "autoincrement": false,
+          "name": "promot_new",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cat_no": {
+          "autoincrement": false,
+          "name": "cat_no",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime": {
+          "autoincrement": false,
+          "name": "ime",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "miarka": {
+          "autoincrement": false,
+          "name": "miarka",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_lat": {
+          "autoincrement": false,
+          "name": "ime_lat",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "potr_id": {
+          "autoincrement": false,
+          "name": "potr_id",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "potr_ime": {
+          "autoincrement": false,
+          "name": "potr_ime",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "q0011_sklad": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q0011_sklad",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q03_bucuresti": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q03_bucuresti",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q12_burgas": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q12_burgas",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q14_burgascentar": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q14_burgascentar",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q15_burgashobby": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q15_burgashobby",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q22_sofia": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q22_sofia",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q23_sofiandk": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q23_sofiandk",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q24_szagora": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q24_szagora",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q26_varna": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q26_varna",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q28_ruse": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q28_ruse",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q31_vtarnovo": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q31_vtarnovo",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q32_shumen": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q32_shumen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q34_yambol": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q34_yambol",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q36_haskovo": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q36_haskovo",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q38_goriahovica": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q38_goriahovica",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q41_sliven": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q41_sliven",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q43_plovdiv": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q43_plovdiv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q51_burgaskiki": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q51_burgaskiki",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q100_slujeben": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q100_slujeben",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prom": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "prom",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "zelen": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "zelen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "itemiztrit_item_id": {
+          "name": "itemiztrit_item_id",
+          "columns": ["item_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "klienti": {
+      "name": "klienti",
+      "columns": {
+        "klienti_id": {
+          "autoincrement": true,
+          "name": "klienti_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email_reg": {
+          "autoincrement": false,
+          "name": "email_reg",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "parola": {
+          "autoincrement": false,
+          "name": "parola",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_familia": {
+          "autoincrement": false,
+          "name": "ime_familia",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_familia_adr": {
+          "autoincrement": false,
+          "name": "ime_familia_adr",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "darjava": {
+          "autoincrement": false,
+          "name": "darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "region": {
+          "autoincrement": false,
+          "name": "region",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "oblast": {
+          "autoincrement": false,
+          "name": "oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "obshtina": {
+          "autoincrement": false,
+          "name": "obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "grad_selo": {
+          "autoincrement": false,
+          "name": "grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_kod": {
+          "autoincrement": false,
+          "name": "post_kod",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "adres": {
+          "autoincrement": false,
+          "name": "adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefon": {
+          "autoincrement": false,
+          "name": "telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "br_dop_adresi": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "br_dop_adresi",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_reg": {
+          "autoincrement": false,
+          "name": "data_reg",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_promiana": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "data_promiana",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "onUpdate": true
+        },
+        "f_firma": {
+          "autoincrement": false,
+          "name": "f_firma",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_eik": {
+          "autoincrement": false,
+          "name": "f_eik",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_dds": {
+          "autoincrement": false,
+          "name": "f_dds",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_darjava": {
+          "autoincrement": false,
+          "name": "f_darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_oblast": {
+          "autoincrement": false,
+          "name": "f_oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_obshtina": {
+          "autoincrement": false,
+          "name": "f_obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_grad_selo": {
+          "autoincrement": false,
+          "name": "f_grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_post_kod": {
+          "autoincrement": false,
+          "name": "f_post_kod",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_adres": {
+          "autoincrement": false,
+          "name": "f_adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_telefon": {
+          "autoincrement": false,
+          "name": "f_telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_mol": {
+          "autoincrement": false,
+          "name": "f_mol",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_poluchatel": {
+          "autoincrement": false,
+          "name": "f_poluchatel",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "br_dop_firmi": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "br_dop_firmi",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "otstapka": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "otstapka",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "otstapka2": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "otstapka2",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "otstapka3": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "otstapka3",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "grupa_otstapki": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "grupa_otstapki",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "zakluchen": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "zakluchen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "status",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email_otpisani": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "email_otpisani",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email_otpisani_data": {
+          "autoincrement": false,
+          "name": "email_otpisani_data",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email_greshen": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "email_greshen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reklama": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "reklama",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "grupa": {
+          "autoincrement": false,
+          "name": "grupa",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kategorizacia": {
+          "autoincrement": false,
+          "name": "kategorizacia",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tip": {
+          "autoincrement": false,
+          "name": "tip",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "komentar": {
+          "autoincrement": false,
+          "name": "komentar",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zabelejki": {
+          "autoincrement": false,
+          "name": "zabelejki",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "microkod": {
+          "autoincrement": false,
+          "name": "microkod",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "microddsbanka": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "microddsbanka",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "broi_porachki": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "broi_porachki",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "suma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "suma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pordata_last": {
+          "autoincrement": false,
+          "name": "pordata_last",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "porizp_last_status": {
+          "autoincrement": false,
+          "name": "porizp_last_status",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefon2": {
+          "autoincrement": false,
+          "name": "telefon2",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email2": {
+          "autoincrement": false,
+          "name": "email2",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "www": {
+          "autoincrement": false,
+          "name": "www",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zapomni_me": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "zapomni_me",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izbran_adres": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbran_adres",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izbrana_firma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbrana_firma",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_svarzani_klienti": {
+          "autoincrement": false,
+          "name": "id_svarzani_klienti",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_dubl_no": {
+          "autoincrement": false,
+          "name": "ivo_dubl_no",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_dubl": {
+          "autoincrement": false,
+          "name": "ivo_dubl",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_dubl2": {
+          "autoincrement": false,
+          "name": "ivo_dubl2",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dubl_micro": {
+          "autoincrement": false,
+          "name": "dubl_micro",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_sort1": {
+          "autoincrement": false,
+          "name": "ivo_sort1",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_sort2": {
+          "autoincrement": false,
+          "name": "ivo_sort2",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_sort3": {
+          "autoincrement": false,
+          "name": "ivo_sort3",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_sort4": {
+          "autoincrement": false,
+          "name": "ivo_sort4",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_coment": {
+          "autoincrement": false,
+          "name": "ivo_coment",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ivo_coment2": {
+          "autoincrement": false,
+          "name": "ivo_coment2",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "broi_logvania": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "broi_logvania",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_posl_logvane": {
+          "autoincrement": false,
+          "name": "data_posl_logvane",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_grad": {
+          "autoincrement": false,
+          "name": "old_grad",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_nik": {
+          "autoincrement": false,
+          "name": "old_nik",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_vapros": {
+          "autoincrement": false,
+          "name": "old_vapros",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_otgovor": {
+          "autoincrement": false,
+          "name": "old_otgovor",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_ime": {
+          "autoincrement": false,
+          "name": "old_ime",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_prezime": {
+          "autoincrement": false,
+          "name": "old_prezime",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_familia": {
+          "autoincrement": false,
+          "name": "old_familia",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_pol": {
+          "autoincrement": false,
+          "name": "old_pol",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_r_data_d": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "old_r_data_d",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "old_r_data_m": {
+          "autoincrement": false,
+          "name": "old_r_data_m",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_r_data_g": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "old_r_data_g",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fid": {
+          "autoincrement": false,
+          "name": "fid",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "regot": {
+          "autoincrement": false,
+          "name": "regot",
+          "type": "varchar(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_first": {
+          "autoincrement": false,
+          "name": "ime_first",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_middle": {
+          "autoincrement": false,
+          "name": "ime_middle",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_last": {
+          "autoincrement": false,
+          "name": "ime_last",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otcite": {
+          "autoincrement": false,
+          "name": "otcite",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rojdenna_data": {
+          "autoincrement": false,
+          "name": "rojdenna_data",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "klienti_klienti_id": {
+          "name": "klienti_klienti_id",
+          "columns": ["klienti_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "email_reg": {
+          "name": "email_reg",
+          "columns": ["email_reg"]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "klienti_dop_adresi": {
+      "name": "klienti_dop_adresi",
+      "columns": {
+        "klienti_dop_adresi_id": {
+          "autoincrement": true,
+          "name": "klienti_dop_adresi_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "klienti_id": {
+          "autoincrement": false,
+          "name": "klienti_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ime_familia": {
+          "autoincrement": false,
+          "name": "ime_familia",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "darjava": {
+          "autoincrement": false,
+          "name": "darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "region": {
+          "autoincrement": false,
+          "name": "region",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "oblast": {
+          "autoincrement": false,
+          "name": "oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "obshtina": {
+          "autoincrement": false,
+          "name": "obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "grad_selo": {
+          "autoincrement": false,
+          "name": "grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_kod": {
+          "autoincrement": false,
+          "name": "post_kod",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "adres": {
+          "autoincrement": false,
+          "name": "adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefon": {
+          "autoincrement": false,
+          "name": "telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "klienti_dop_adresi_klienti_dop_adresi_id": {
+          "name": "klienti_dop_adresi_klienti_dop_adresi_id",
+          "columns": ["klienti_dop_adresi_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "klienti_dop_firmi": {
+      "name": "klienti_dop_firmi",
+      "columns": {
+        "klienti_dop_firmi_id": {
+          "autoincrement": true,
+          "name": "klienti_dop_firmi_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "klienti_id": {
+          "autoincrement": false,
+          "name": "klienti_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "f_firma": {
+          "autoincrement": false,
+          "name": "f_firma",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_eik": {
+          "autoincrement": false,
+          "name": "f_eik",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_dds": {
+          "autoincrement": false,
+          "name": "f_dds",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_darjava": {
+          "autoincrement": false,
+          "name": "f_darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_oblast": {
+          "autoincrement": false,
+          "name": "f_oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_obshtina": {
+          "autoincrement": false,
+          "name": "f_obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_grad_selo": {
+          "autoincrement": false,
+          "name": "f_grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_post_kod": {
+          "autoincrement": false,
+          "name": "f_post_kod",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_adres": {
+          "autoincrement": false,
+          "name": "f_adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_telefon": {
+          "autoincrement": false,
+          "name": "f_telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_mol": {
+          "autoincrement": false,
+          "name": "f_mol",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_poluchatel": {
+          "autoincrement": false,
+          "name": "f_poluchatel",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "klienti_dop_firmi_klienti_dop_firmi_id": {
+          "name": "klienti_dop_firmi_klienti_dop_firmi_id",
+          "columns": ["klienti_dop_firmi_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "klienti_ip": {
+      "name": "klienti_ip",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "br": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "br",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mango": {
+          "autoincrement": false,
+          "name": "mango",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "klienti_ip_id": {
+          "name": "klienti_ip_id",
+          "columns": ["id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "klienti_log": {
+      "name": "klienti_log",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_klient": {
+          "autoincrement": false,
+          "name": "id_klient",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ip_last_log": {
+          "autoincrement": false,
+          "name": "ip_last_log",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_log": {
+          "autoincrement": false,
+          "name": "data_log",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fid": {
+          "autoincrement": false,
+          "name": "fid",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "komentar1": {
+          "autoincrement": false,
+          "name": "komentar1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "komentar2": {
+          "autoincrement": false,
+          "name": "komentar2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fb_id": {
+          "autoincrement": false,
+          "name": "fb_id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fb_google_registered": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "fb_google_registered",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fb_last_data_logged": {
+          "autoincrement": false,
+          "name": "fb_last_data_logged",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "google_last_data_logged": {
+          "autoincrement": false,
+          "name": "google_last_data_logged",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_first": {
+          "autoincrement": false,
+          "name": "ime_first",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "log_ne_log": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "log_ne_log",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ot_kade": {
+          "autoincrement": false,
+          "name": "ot_kade",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "klienti_log_id": {
+          "name": "klienti_log_id",
+          "columns": ["id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "poliaci": {
+      "name": "poliaci",
+      "columns": {
+        "poliaci_id": {
+          "autoincrement": true,
+          "name": "poliaci_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "potrebid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "potrebid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ime": {
+          "autoincrement": false,
+          "name": "ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "poliaciid": {
+          "autoincrement": false,
+          "name": "poliaciid",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "message": {
+          "autoincrement": false,
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "success": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "success",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "external": {
+          "autoincrement": false,
+          "name": "external",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "datata": {
+          "autoincrement": false,
+          "name": "datata",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ipto": {
+          "autoincrement": false,
+          "name": "ipto",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otkade": {
+          "autoincrement": false,
+          "name": "otkade",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otskript": {
+          "autoincrement": false,
+          "name": "otskript",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "poliaci_poliaci_id": {
+          "name": "poliaci_poliaci_id",
+          "columns": ["poliaci_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "poliaci1": {
+      "name": "poliaci1",
+      "columns": {
+        "poliaci_id": {
+          "autoincrement": true,
+          "name": "poliaci_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "potrebid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "potrebid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ime": {
+          "autoincrement": false,
+          "name": "ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "poliaciid": {
+          "autoincrement": false,
+          "name": "poliaciid",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "message": {
+          "autoincrement": false,
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "success": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "success",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "external": {
+          "autoincrement": false,
+          "name": "external",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "datata": {
+          "autoincrement": false,
+          "name": "datata",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ipto": {
+          "autoincrement": false,
+          "name": "ipto",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otkade": {
+          "autoincrement": false,
+          "name": "otkade",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otskript": {
+          "autoincrement": false,
+          "name": "otskript",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "poliaci1_poliaci_id": {
+          "name": "poliaci1_poliaci_id",
+          "columns": ["poliaci_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "poliaci_old_do_20211216": {
+      "name": "poliaci_old_do_20211216",
+      "columns": {
+        "poliaci_id": {
+          "autoincrement": true,
+          "name": "poliaci_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "potrebid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "potrebid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ime": {
+          "autoincrement": false,
+          "name": "ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "poliaciid": {
+          "autoincrement": false,
+          "name": "poliaciid",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "message": {
+          "autoincrement": false,
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "success": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "success",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "external": {
+          "autoincrement": false,
+          "name": "external",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "datata": {
+          "autoincrement": false,
+          "name": "datata",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ipto": {
+          "autoincrement": false,
+          "name": "ipto",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otkade": {
+          "autoincrement": false,
+          "name": "otkade",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "otskript": {
+          "autoincrement": false,
+          "name": "otskript",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "poliaci_old_do_20211216_poliaci_id": {
+          "name": "poliaci_old_do_20211216_poliaci_id",
+          "columns": ["poliaci_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "porachki": {
+      "name": "porachki",
+      "columns": {
+        "porachki_id": {
+          "autoincrement": true,
+          "name": "porachki_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "potreb_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "potreb_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porach": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "porach",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pordata": {
+          "autoincrement": false,
+          "name": "pordata",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pordost": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "pordost",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porizp": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porizp",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porizp_ime": {
+          "default": "'Нов'",
+          "autoincrement": false,
+          "name": "porizp_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porizpdat": {
+          "autoincrement": false,
+          "name": "porizpdat",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "broi_dni": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "broi_dni",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porgr": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porgr",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porcomtr": {
+          "autoincrement": false,
+          "name": "porcomtr",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "porcomadm": {
+          "autoincrement": false,
+          "name": "porcomadm",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "porcor": {
+          "autoincrement": false,
+          "name": "porcor",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shtane": {
+          "autoincrement": false,
+          "name": "shtane",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tovaritelnica": {
+          "autoincrement": false,
+          "name": "tovaritelnica",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kod_micro": {
+          "autoincrement": false,
+          "name": "kod_micro",
+          "type": "varchar(51)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "izpaln_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izpaln_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izpaln_ime": {
+          "autoincrement": false,
+          "name": "izpaln_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "info_my": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "info_my",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "do_kade": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "do_kade",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "faktura": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "faktura",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izbran_adr": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbran_adr",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izpaln1_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izpaln1_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izpaln1_ime": {
+          "autoincrement": false,
+          "name": "izpaln1_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "magaz_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "magaz_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "magaz_ime": {
+          "autoincrement": false,
+          "name": "magaz_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "magaz1_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "magaz1_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "magaz1_ime": {
+          "autoincrement": false,
+          "name": "magaz1_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "poluchsumi": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "poluchsumi",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "poluchsuma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "poluchsuma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "poluchsumd": {
+          "autoincrement": false,
+          "name": "poluchsumd",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "broi_pera": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "broi_pera",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porach_suma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porach_suma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_familia": {
+          "autoincrement": false,
+          "name": "ime_familia",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_familia_adr": {
+          "autoincrement": false,
+          "name": "ime_familia_adr",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "darjava": {
+          "autoincrement": false,
+          "name": "darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "region": {
+          "autoincrement": false,
+          "name": "region",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "oblast": {
+          "autoincrement": false,
+          "name": "oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "obshtina": {
+          "autoincrement": false,
+          "name": "obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "grad_selo": {
+          "autoincrement": false,
+          "name": "grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_kod": {
+          "autoincrement": false,
+          "name": "post_kod",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "adres": {
+          "autoincrement": false,
+          "name": "adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefon": {
+          "autoincrement": false,
+          "name": "telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_firma": {
+          "autoincrement": false,
+          "name": "f_firma",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_eik": {
+          "autoincrement": false,
+          "name": "f_eik",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_dds": {
+          "autoincrement": false,
+          "name": "f_dds",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_darjava": {
+          "autoincrement": false,
+          "name": "f_darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_oblast": {
+          "autoincrement": false,
+          "name": "f_oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_obshtina": {
+          "autoincrement": false,
+          "name": "f_obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_grad_selo": {
+          "autoincrement": false,
+          "name": "f_grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_post_kod": {
+          "autoincrement": false,
+          "name": "f_post_kod",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_adres": {
+          "autoincrement": false,
+          "name": "f_adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_telefon": {
+          "autoincrement": false,
+          "name": "f_telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_mol": {
+          "autoincrement": false,
+          "name": "f_mol",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_poluchatel": {
+          "autoincrement": false,
+          "name": "f_poluchatel",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "izbran_adres": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbran_adres",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izbrana_firma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbrana_firma",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "brkomen": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "brkomen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cendost": {
+          "autoincrement": false,
+          "name": "cendost",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "klmicrokod": {
+          "autoincrement": false,
+          "name": "klmicrokod",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ot_site": {
+          "autoincrement": false,
+          "name": "ot_site",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "valuta": {
+          "autoincrement": false,
+          "name": "valuta",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kurs": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "kurs",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kurr": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "kurr",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipdds": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "tipdds",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cendost_izchislena": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cendost_izchislena",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cendost_emart_plashta": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cendost_emart_plashta",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cendost_kurier_realna": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cendost_kurier_realna",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cendost_kurier_emart": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cendost_kurier_emart",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "porachki_porachki_id": {
+          "name": "porachki_porachki_id",
+          "columns": ["porachki_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "porachki_msg": {
+      "name": "porachki_msg",
+      "columns": {
+        "porachki_msg_id": {
+          "autoincrement": true,
+          "name": "porachki_msg_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porachki_id": {
+          "autoincrement": false,
+          "name": "porachki_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "msg_text": {
+          "autoincrement": false,
+          "name": "msg_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "msg_email": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "msg_email",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "msg_data": {
+          "autoincrement": false,
+          "name": "msg_data",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "msg_kol": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "msg_kol",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "porachki_msg_porachki_msg_id": {
+          "name": "porachki_msg_porachki_msg_id",
+          "columns": ["porachki_msg_id"]
+        }
+      },
+      "indexes": {
+        "porachki_id": {
+          "name": "porachki_id",
+          "columns": ["porachki_id"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "porachkimsgiztrit": {
+      "name": "porachkimsgiztrit",
+      "columns": {
+        "porachki_msg_id": {
+          "autoincrement": true,
+          "name": "porachki_msg_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porachki_id": {
+          "autoincrement": false,
+          "name": "porachki_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "msg_text": {
+          "autoincrement": false,
+          "name": "msg_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "msg_email": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "msg_email",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "msg_data": {
+          "autoincrement": false,
+          "name": "msg_data",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "porachkimsgiztrit_porachki_msg_id": {
+          "name": "porachkimsgiztrit_porachki_msg_id",
+          "columns": ["porachki_msg_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "porachkiztriti": {
+      "name": "porachkiztriti",
+      "columns": {
+        "porachki_id": {
+          "autoincrement": true,
+          "name": "porachki_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "potreb_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "potreb_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porach": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "porach",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pordata": {
+          "autoincrement": false,
+          "name": "pordata",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pordost": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "pordost",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porizp": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porizp",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porizp_ime": {
+          "autoincrement": false,
+          "name": "porizp_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "porizpdat": {
+          "autoincrement": false,
+          "name": "porizpdat",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "broi_dni": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "broi_dni",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porgr": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porgr",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porcomtr": {
+          "autoincrement": false,
+          "name": "porcomtr",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "porcomadm": {
+          "autoincrement": false,
+          "name": "porcomadm",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "porcor": {
+          "autoincrement": false,
+          "name": "porcor",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shtane": {
+          "autoincrement": false,
+          "name": "shtane",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tovaritelnica": {
+          "autoincrement": false,
+          "name": "tovaritelnica",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kod_micro": {
+          "autoincrement": false,
+          "name": "kod_micro",
+          "type": "varchar(51)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "izpaln_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izpaln_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izpaln_ime": {
+          "autoincrement": false,
+          "name": "izpaln_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "info_my": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "info_my",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "do_kade": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "do_kade",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "faktura": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "faktura",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izbran_adr": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbran_adr",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izpaln1_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izpaln1_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izpaln1_ime": {
+          "autoincrement": false,
+          "name": "izpaln1_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "magaz_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "magaz_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "magaz_ime": {
+          "autoincrement": false,
+          "name": "magaz_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "magaz1_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "magaz1_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "magaz1_ime": {
+          "autoincrement": false,
+          "name": "magaz1_ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "poluchsumi": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "poluchsumi",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "poluchsuma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "poluchsuma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "poluchsumd": {
+          "autoincrement": false,
+          "name": "poluchsumd",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "broi_pera": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "broi_pera",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porach_suma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porach_suma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_familia": {
+          "autoincrement": false,
+          "name": "ime_familia",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime_familia_adr": {
+          "autoincrement": false,
+          "name": "ime_familia_adr",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "darjava": {
+          "autoincrement": false,
+          "name": "darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "region": {
+          "autoincrement": false,
+          "name": "region",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "oblast": {
+          "autoincrement": false,
+          "name": "oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "obshtina": {
+          "autoincrement": false,
+          "name": "obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "grad_selo": {
+          "autoincrement": false,
+          "name": "grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_kod": {
+          "autoincrement": false,
+          "name": "post_kod",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "adres": {
+          "autoincrement": false,
+          "name": "adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefon": {
+          "autoincrement": false,
+          "name": "telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_firma": {
+          "autoincrement": false,
+          "name": "f_firma",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_eik": {
+          "autoincrement": false,
+          "name": "f_eik",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_dds": {
+          "autoincrement": false,
+          "name": "f_dds",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_darjava": {
+          "autoincrement": false,
+          "name": "f_darjava",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_oblast": {
+          "autoincrement": false,
+          "name": "f_oblast",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_obshtina": {
+          "autoincrement": false,
+          "name": "f_obshtina",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_grad_selo": {
+          "autoincrement": false,
+          "name": "f_grad_selo",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_post_kod": {
+          "autoincrement": false,
+          "name": "f_post_kod",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_adres": {
+          "autoincrement": false,
+          "name": "f_adres",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_telefon": {
+          "autoincrement": false,
+          "name": "f_telefon",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_mol": {
+          "autoincrement": false,
+          "name": "f_mol",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "f_poluchatel": {
+          "autoincrement": false,
+          "name": "f_poluchatel",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "izbran_adres": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbran_adres",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izbrana_firma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izbrana_firma",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "brkomen": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "brkomen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cendost": {
+          "autoincrement": false,
+          "name": "cendost",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "klmicrokod": {
+          "autoincrement": false,
+          "name": "klmicrokod",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ot_site": {
+          "autoincrement": false,
+          "name": "ot_site",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "valuta": {
+          "autoincrement": false,
+          "name": "valuta",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dataiztr": {
+          "autoincrement": false,
+          "name": "dataiztr",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koiiztrid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "koiiztrid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "porachkiztriti_porachki_id": {
+          "name": "porachkiztriti_porachki_id",
+          "columns": ["porachki_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "promocii_q": {
+      "name": "promocii_q",
+      "columns": {
+        "catalog_id": {
+          "autoincrement": true,
+          "name": "catalog_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cat_no": {
+          "autoincrement": false,
+          "name": "cat_no",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ime": {
+          "autoincrement": false,
+          "name": "ime",
+          "type": "varchar(511)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "q_total_nalichni": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q_total_nalichni",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q_total_porachani": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q_total_porachani",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q_count_porachani": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q_count_porachani",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q_total_nalichni_start": {
+          "default": 1,
+          "autoincrement": false,
+          "name": "q_total_nalichni_start",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aktivna_neaktivna": {
+          "autoincrement": false,
+          "name": "aktivna_neaktivna",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data": {
+          "autoincrement": false,
+          "name": "data",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koment_1": {
+          "autoincrement": false,
+          "name": "koment_1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koment_2": {
+          "autoincrement": false,
+          "name": "koment_2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cena": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cena",
+          "type": "float(5,2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gr_otst": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "gr_otst",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "br_1": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "br_1",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cena_1": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cena_1",
+          "type": "float(5,2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "br_2": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "br_2",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cena_2": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cena_2",
+          "type": "float(5,2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prioritet_micro": {
+          "autoincrement": false,
+          "name": "prioritet_micro",
+          "type": "varchar(63)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tip_stokata": {
+          "autoincrement": false,
+          "name": "tip_stokata",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "q0011_sklad": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q0011_sklad",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q12_burgas": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q12_burgas",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q14_burgascentar": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q14_burgascentar",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q15_burgashobby": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q15_burgashobby",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q22_sofia": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q22_sofia",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q23_sofiandk": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q23_sofiandk",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q24_szagora": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q24_szagora",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q26_varna": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q26_varna",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q28_ruse": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q28_ruse",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q31_vtarnovo": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q31_vtarnovo",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q32_shumen": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q32_shumen",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q34_yambol": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q34_yambol",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q36_haskovo": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q36_haskovo",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q43_plovdiv": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q43_plovdiv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q_total": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q_total",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "q_count_nalichni_v_magazini": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "q_count_nalichni_v_magazini",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dost_cena": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "dost_cena",
+          "type": "float(5,2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "p_cengr_2": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "p_cengr_2",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "p_cengr_3": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "p_cengr_3",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koment_3": {
+          "autoincrement": false,
+          "name": "koment_3",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koment_4": {
+          "autoincrement": false,
+          "name": "koment_4",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "vidimost": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "vidimost",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "p_acti": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "p_acti",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bez_kolichka": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "bez_kolichka",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nova_stoka_aktiv": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "nova_stoka_aktiv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nalichnost": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "nalichnost",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "promocii_q_catalog_id": {
+          "name": "promocii_q_catalog_id",
+          "columns": ["catalog_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "cat_no": {
+          "name": "cat_no",
+          "columns": ["cat_no"]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "rating": {
+      "name": "rating",
+      "columns": {
+        "rating_id": {
+          "autoincrement": true,
+          "name": "rating_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kod": {
+          "autoincrement": false,
+          "name": "kod",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ocenka": {
+          "default": 5,
+          "autoincrement": false,
+          "name": "ocenka",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sesia_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "sesia_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "klient_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "klient_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "otsite": {
+          "default": "'bg'",
+          "autoincrement": false,
+          "name": "otsite",
+          "type": "varchar(7)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "rating_rating_id": {
+          "name": "rating_rating_id",
+          "columns": ["rating_id"]
+        }
+      },
+      "indexes": {
+        "kod": {
+          "name": "kod",
+          "columns": ["kod"],
+          "isUnique": false
+        },
+        "sesia_id": {
+          "name": "sesia_id",
+          "columns": ["sesia_id"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "rating_prazna": {
+      "name": "rating_prazna",
+      "columns": {
+        "rating_id": {
+          "autoincrement": true,
+          "name": "rating_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kod": {
+          "autoincrement": false,
+          "name": "kod",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ocenka": {
+          "default": 5,
+          "autoincrement": false,
+          "name": "ocenka",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sesia_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "sesia_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "klient_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "klient_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "otsite": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "otsite",
+          "type": "varchar(7)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "rating_prazna_rating_id": {
+          "name": "rating_prazna_rating_id",
+          "columns": ["rating_id"]
+        }
+      },
+      "indexes": {
+        "kod": {
+          "name": "kod",
+          "columns": ["kod"],
+          "isUnique": false
+        },
+        "sesia_id": {
+          "name": "sesia_id",
+          "columns": ["sesia_id"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "smizp": {
+      "name": "smizp",
+      "columns": {
+        "smizp_id": {
+          "autoincrement": true,
+          "name": "smizp_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "magid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "magid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "magime": {
+          "autoincrement": false,
+          "name": "magime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "izpid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "izpid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "izpime": {
+          "autoincrement": false,
+          "name": "izpime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sumid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "sumid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sumime": {
+          "autoincrement": false,
+          "name": "sumime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "suma": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "suma",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koga": {
+          "autoincrement": false,
+          "name": "koga",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koiid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "koiid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koiime": {
+          "autoincrement": false,
+          "name": "koiime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "smizp_smizp_id": {
+          "name": "smizp_smizp_id",
+          "columns": ["smizp_id"]
+        }
+      },
+      "indexes": {
+        "izpid": {
+          "name": "izpid",
+          "columns": ["izpid"],
+          "isUnique": false
+        },
+        "koga": {
+          "name": "koga",
+          "columns": ["koga"],
+          "isUnique": false
+        },
+        "magid": {
+          "name": "magid",
+          "columns": ["magid"],
+          "isUnique": false
+        },
+        "porid": {
+          "name": "porid",
+          "columns": ["porid"],
+          "isUnique": false
+        },
+        "sumid": {
+          "name": "sumid",
+          "columns": ["sumid"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "smstat": {
+      "name": "smstat",
+      "columns": {
+        "smstat_id": {
+          "autoincrement": true,
+          "name": "smstat_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "statid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "statid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "statime": {
+          "autoincrement": false,
+          "name": "statime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koga": {
+          "autoincrement": false,
+          "name": "koga",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koiid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "koiid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koiime": {
+          "autoincrement": false,
+          "name": "koiime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "smstat_smstat_id": {
+          "name": "smstat_smstat_id",
+          "columns": ["smstat_id"]
+        }
+      },
+      "indexes": {
+        "koga": {
+          "name": "koga",
+          "columns": ["koga"],
+          "isUnique": false
+        },
+        "porid": {
+          "name": "porid",
+          "columns": ["porid"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "snimki": {
+      "name": "snimki",
+      "columns": {
+        "snimki_id": {
+          "autoincrement": true,
+          "name": "snimki_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "catno": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "catno",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ime": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "ime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "direk": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "direk",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "shirochina": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "shirochina",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "visochina": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "visochina",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cviat": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "cviat",
+          "type": "varchar(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nomer": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "nomer",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tip": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "tip",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "snimki_snimki_id": {
+          "name": "snimki_snimki_id",
+          "columns": ["snimki_id"]
+        }
+      },
+      "indexes": {
+        "catno": {
+          "name": "catno",
+          "columns": ["catno"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "tuvar": {
+      "name": "tuvar",
+      "columns": {
+        "tuvar_id": {
+          "autoincrement": true,
+          "name": "tuvar_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "porid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tovari": {
+          "autoincrement": false,
+          "name": "tovari",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cd1": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cd1",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cd2": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "cd2",
+          "type": "float",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koga": {
+          "autoincrement": false,
+          "name": "koga",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koiid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "koiid",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "koiime": {
+          "autoincrement": false,
+          "name": "koiime",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "tuvar_tuvar_id": {
+          "name": "tuvar_tuvar_id",
+          "columns": ["tuvar_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "txt_ip": {
+      "name": "txt_ip",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tip": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "tip",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ip": {
+          "autoincrement": false,
+          "name": "ip",
+          "type": "varchar(31)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "opis": {
+          "autoincrement": false,
+          "name": "opis",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "txt_ip_id": {
+          "name": "txt_ip_id",
+          "columns": ["id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    }
+  },
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {
+      "klienti": {
+        "columns": {
+          "data_promiana": {
+            "isDefaultAnExpression": true
+          }
+        }
+      }
+    },
+    "indexes": {}
+  }
+}

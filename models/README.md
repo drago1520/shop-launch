@@ -1,7 +1,6 @@
 # Quick intro
 
 We use _Drizzle ORM_. Each File in models/schem/\* represents a table.
-We use neon.tech for serverless pg.
 Each file in `/models/schema` represents a table.
 
 ###### add new columns
