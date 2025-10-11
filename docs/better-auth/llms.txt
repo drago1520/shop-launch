@@ -644,7 +644,7 @@ description: Learn how to configure Better Auth in your project.
     2. **Set Base URL**
 
     ```txt title=".env"
-    BETTER_AUTH_URL=http://localhost:3000 # Base URL of your app
+    BASE_URL=http://localhost:3000 # Base URL of your app
     ```
   </Step>
 
@@ -4464,7 +4464,7 @@ description: Salesforce provider setup and usage.
     ```bash title=".env.local"
     SALESFORCE_CLIENT_ID=your_consumer_key_here
     SALESFORCE_CLIENT_SECRET=your_consumer_secret_here
-    BETTER_AUTH_URL=http://localhost:3000 # Important for redirect URI generation
+    BASE_URL=http://localhost:3000 # Important for redirect URI generation
     ```
 
     For production:
@@ -4472,7 +4472,7 @@ description: Salesforce provider setup and usage.
     ```bash title=".env"
     SALESFORCE_CLIENT_ID=your_consumer_key_here
     SALESFORCE_CLIENT_SECRET=your_consumer_secret_here
-    BETTER_AUTH_URL=https://yourdomain.com
+    BASE_URL=https://yourdomain.com
     ```
   </Step>
 
@@ -7517,7 +7517,7 @@ Before starting the migration process, set up Better Auth in your project. Follo
     import { createAuthClient } from "better-auth/react";
 
     export const authClient = createAuthClient({
-        baseURL: process.env.BASE_URL! // Optional if the API base URL matches the frontend
+        baseURL: process.env.EXPO_PUBLIC_BASE_URL! // Optional if the API base URL matches the frontend
     });
 
     export const { signIn, signOut, useSession } = authClient;
@@ -15461,7 +15461,7 @@ export const auth = betterAuth({
 })
 ```
 
-If not explicitly set, the system will check for the environment variable `process.env.BETTER_AUTH_URL`
+If not explicitly set, the system will check for the environment variable `process.env.EXPO_PUBLIC_BASE_URL`
 
 ## `basePath`
 
@@ -19586,7 +19586,7 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
       return (
         <html>
           <body>
-            {/* or meta.env.BETTER_AUTH_URL for vite */}
+            {/* or meta.env.BASE_URL for vite */}
             <AutumnProvider betterAuthUrl={process.env.NEXT_PUBLIC_BETTER_AUTH_URL}>
               {children}
             </AutumnProvider>
@@ -20907,7 +20907,7 @@ description: Better Auth Plugin for Dodo Payments
     import { dodopaymentsClient } from "@dodopayments/better-auth";
 
     export const authClient = createAuthClient({
-      baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+      baseURL: process.env.EXPO_PUBLIC_BASE_URL || "http://localhost:3000",
       plugins: [dodopaymentsClient()],
     });
     ```
@@ -23695,7 +23695,7 @@ When the OAuth provider returns the user to your server, the plugin automaticall
 
 **currentURL**: The application's current URL is automatically determined by the plugin. It first checks for the request URL if invoked by a client, then it checks the base URL from popular hosting providers, and finally falls back to the `baseURL` in your auth config. If the URL isn’t inferred correctly, you can specify it manually here.
 
-**productionURL**: If this value matches the `baseURL` in your auth config, requests will not be proxied. Defaults to the `BETTER_AUTH_URL` environment variable.
+**productionURL**: If this value matches the `baseURL` in your auth config, requests will not be proxied. Defaults to the `BASE_URL` environment variable.
 
 
 

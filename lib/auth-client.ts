@@ -6,7 +6,7 @@ import { expoClient } from '@better-auth/expo/client';
 import * as SecureStore from 'expo-secure-store';
 
 export const authClient = createAuthClient({
-  baseURL: process.env.BETTER_AUTH_URL,
+  baseURL: process.env.EXPO_PUBLIC_BASE_URL,
   plugins: [
     magicLinkClient(),
     anonymousClient(),
