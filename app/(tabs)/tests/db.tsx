@@ -2,7 +2,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from '@/components/ui/text';
 import { View, ScrollView } from 'react-native';
 import { Button } from '@/components/ui/button';
-import { trpc } from '@/lib/trpc/client-trpc';
+import { trpc } from '@/server/client-trpc';
 import { useState } from 'react';
 
 export default function Page() {
