@@ -6,6 +6,6 @@ export default defineConfig({
   schema: './models/schema-inmarta/*',
   dialect: 'mysql',
   dbCredentials: {
-    url: `${process.env.DATABASE_URL}inmarta`,
+    url: process.env.DATABASE_URL,
   },
 });
