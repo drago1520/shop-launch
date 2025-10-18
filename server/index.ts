@@ -1,12 +1,22 @@
 //Here's where the rubber hits the road. We define API routes here for tRPC.
+import { drizzle } from 'drizzle-orm/mysql2';
 import { publicProcedure, router } from './server-trpc';
-import { db } from '@/models';
+import mysql from 'mysql2/promise';
 import { catalog } from '@/models/drizzle-inmarta/schema';
+
+const poolConnection = mysql.createPool({ uri: process.env.DATABASE_URL! });
+export const db = drizzle({ client: poolConnection });
+console.log(`Connected to database at ${new URL(process.env.DATABASE_URL!).host}`);
 
 export const appRouter = router({
   hello: publicProcedure.query(async () => {
-    const data = await db.select().from(catalog).limit(10);
-    return `Hello mom! ${data[0].ime}`;
+    // const data = await db.select().from(catalog).limit(10);
+    return `Hello mom!`;
+  }),
+  clientMySQL: publicProcedure.query(async () => {
+    const r = await db.select().from(catalog).limit(2);
+    console.log('r :', r);
+    return r;
   }),
 });
 

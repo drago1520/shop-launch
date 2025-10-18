@@ -8,3 +8,11 @@ export const API_ = createTRPCClient<AppRouter>({
     }),
   ],
 });
+
+export const BunTRPC = createTRPCClient<AppRouter>({
+  links: [
+    httpBatchLink({
+      url: `http://192.168.0.3:3004`,
+    }),
+  ],
+});
