@@ -12,7 +12,7 @@ export const API_ = createTRPCClient<AppRouter>({
 export const BunTRPC = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
-      url: process.env.EXPO_PUBLIC_BASE_URL_SERVER!,
+      url: `${process.env.EXPO_PUBLIC_BASE_URL_SERVER!}/trpc`,
     }),
   ],
 });
