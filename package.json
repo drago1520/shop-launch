@@ -1,6 +1,5 @@
 {
   "name": "shop-launch",
-  "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
     "dev": "expo start --go",
@@ -92,11 +91,10 @@
   "resolutions": {
     "lightningcss": "1.27.0"
   },
-  "private": true,
   "trustedDependencies": [
     "unrs-resolver"
   ],
   "engines": {
-    "node": "^19 || >=22"
+    "node": "22"
   }
 }
