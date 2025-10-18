@@ -1,6 +1,6 @@
 //Here's where the rubber hits the road. We define API routes here for tRPC.
 import { drizzle } from 'drizzle-orm/mysql2';
-import { publicProcedure, router } from './server-trpc';
+import { publicProcedure, router } from './trpc-boilerplate';
 import mysql from 'mysql2/promise';
 import { catalog } from '@/server/models/drizzle-inmarta/schema';
 
@@ -14,9 +14,9 @@ export const appRouter = router({
     return `Hello mom!`;
   }),
   clientMySQL: publicProcedure.query(async () => {
-    const r = await db.select().from(catalog).limit(2);
-    console.log('r :', r);
-    return r;
+    const start = performance.now();
+    const [r] = await db.select().from(catalog).limit(2);
+    return `Latency db: ${performance.now() - start} ${r.ime}`;
   }),
 });
 

@@ -41,12 +41,12 @@ export default function Page() {
       setMsg(m);
     }
     if (type === 'bunTrpcMysqlDrizzle') {
-      const [{ ime: m }] = await BunTRPC.clientMySQL.query();
+      const m = await BunTRPC.clientMySQL.query();
       setLatency(performance.now() - start);
       setMsg(m);
     }
     if (type === 'expoApiTrpcDrizzle') {
-      const [{ ime: m }] = await API_.clientMySQL.query();
+      const m = await API_.clientMySQL.query();
       setLatency(performance.now() - start);
       setMsg(m);
     }

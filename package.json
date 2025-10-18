@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "expo start --go",
+    "dev:s": "bun --watch server/perf/bun-trpc.ts",
+    "start": "bun server/perf/bun-trpc.ts",
     "android": "expo start -c --android",
     "ios": "expo start -c --ios",
     "web": "expo start -c --web",

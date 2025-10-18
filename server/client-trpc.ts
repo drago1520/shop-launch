@@ -4,7 +4,7 @@ import type { AppRouter } from '.';
 export const API_ = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
-      url: `${process.env.EXPO_PUBLIC_BASE_URL}/api/trpc`,
+      url: `https://expo.em-art.dev/api/trpc`,
     }),
   ],
 });
@@ -12,7 +12,7 @@ export const API_ = createTRPCClient<AppRouter>({
 export const BunTRPC = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
-      url: `http://192.168.0.3:3004`,
+      url: process.env.EXPO_PUBLIC_BASE_URL_SERVER!,
     }),
   ],
 });

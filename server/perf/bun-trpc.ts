@@ -3,16 +3,10 @@ import { createBunServeHandler } from 'trpc-bun-adapter';
 
 // Minimal Bun + tRPC handler wiring. Using `appRouter` exported from `server/index.ts`.
 Bun.serve(
-  createBunServeHandler(
-    {
-      router: appRouter,
-      createContext: () => ({}),
-    },
-    {
-      port: 3004,
-      hostname: '192.168.0.3',
-    },
-  ),
+  createBunServeHandler({
+    router: appRouter,
+    createContext: () => ({}),
+  }),
 );
 
-console.log('Server running at http://192.168.0.3:3004');
+console.log('Server running at http://localhost:3000');
