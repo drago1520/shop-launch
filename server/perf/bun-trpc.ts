@@ -1,7 +1,7 @@
 import { appRouter } from '@/server';
 import { createBunServeHandler } from 'trpc-bun-adapter';
 
-// Minimal Bun + tRPC handler wiring. Using `appRouter` exported from `server/index.ts`.
+//!MySQL was IP restricted
 Bun.serve(
   createBunServeHandler(
     {
@@ -14,6 +14,7 @@ Bun.serve(
         // will be executed if it's not a TRPC request
         return new Response('Hello world');
       },
+      port: 3000,
     },
   ),
 );

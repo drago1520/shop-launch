@@ -4,6 +4,7 @@ import { publicProcedure, router } from './trpc-boilerplate';
 import mysql from 'mysql2/promise';
 import { catalog } from '@/server/models/drizzle-inmarta/schema';
 
+//!MySQL was IP restricted
 const poolConnection = mysql.createPool({ uri: process.env.DATABASE_URL! });
 export const db = drizzle({ client: poolConnection });
 console.log(`Connected to database at ${new URL(process.env.DATABASE_URL!).host}`);

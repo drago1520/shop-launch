@@ -1,11 +1,12 @@
 {
   "name": "shop-launch",
   "version": "1.0.0",
-  "module": "server/perf/index.ts",
+  "module": "server/perf/bun-trpc.ts",
   "scripts": {
     "dev": "expo start --go",
     "dev:s": "bun --watch server/perf/bun-trpc.ts",
-    "start": "bun server/perf/index.ts",
+    "docs:start": "WARNING: MySQL is IP restrited!",
+    "start": "bun server/perf/bun-trpc.ts",
     "android": "expo start -c --android",
     "ios": "expo start -c --ios",
     "web": "expo start -c --web",

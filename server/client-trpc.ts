@@ -9,6 +9,7 @@ export const API_ = createTRPCClient<AppRouter>({
   ],
 });
 
+//!MySQL was IP restricted and could not deploy to coolify
 export const BunTRPC = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
