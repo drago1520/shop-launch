@@ -90,7 +90,7 @@
     "tsx": "^4.20.6"
   },
   "engines": {
-    "node": "23"
+    "node": ">=23.9.0"
   },
   "resolutions": {
     "lightningcss": "1.27.0"
