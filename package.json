@@ -97,6 +97,6 @@
     "unrs-resolver"
   ],
   "engines": {
-    "node": "^19 || >=23"
+    "node": "^19 || >=22"
   }
 }
