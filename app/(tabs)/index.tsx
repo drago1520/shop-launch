@@ -11,7 +11,7 @@ import CategoryCard from '@/components/category-card';
 import SearchBar from '@/components/search-bar';
 import ProductCard from '@/components/cards/product-card';
 import { sampleProducts } from '@/components/cards/product-data';
-import { CATEGORY_NAMES } from '@/models/random-data';
+import { CATEGORY_NAMES } from '@/server/models/random-data';
 import { useState } from 'react';
 
 export default function Page() {
