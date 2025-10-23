@@ -1,6 +1,7 @@
 {
   "name": "shop-launch",
   "version": "1.0.0",
+  "main": "expo-router/entry",
   "module": "server/perf/bun-trpc.ts",
   "scripts": {
     "dev": "expo start --go",
