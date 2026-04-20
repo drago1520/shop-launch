@@ -40,7 +40,7 @@
     "clsx": "^2.1.1",
     "cross-env": "^10.0.0",
     "dotenv": "^17.2.3",
-    "drizzle-orm": "^0.44.6",
+    "drizzle-orm": "^0.45.2",
     "eslint-config-expo": "~10.0.0",
     "expo": "54.0.13",
     "expo-constants": "~18.0.9",
